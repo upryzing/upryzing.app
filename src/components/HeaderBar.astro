@@ -1,0 +1,59 @@
+---
+interface Props {
+    variant: "default" | "centred";
+}
+
+const { variant } = Astro.props;
+---
+
+<header class=`headerbar ${variant}`>
+    <div class="logo-container">
+        <img id="mono" src="/brand-assets/logo_monochrome.svg" width=24 />
+        <img src="/brand-assets/wordmark.svg" height=32>
+    </div>
+    { variant !== "centred" &&
+        <div class="actions-container">
+            <a class="github"><img src="/brand-assets/gh.svg" height=24></a>
+            <a class="fedi"><img src="/brand-assets/fedi.svg" height=24></a>
+        </div>
+    }
+</header>
+
+<style>
+    .headerbar {
+        position: sticky;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 50px;
+        color: white;
+
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    .headerbar .logo-container,
+    .headerbar .actions-container{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .headerbar .logo-container :not(#mono) {
+		filter: invert(0.005) sepia(1) hue-rotate(calc(var(--accent-hue) + 360deg)) saturate(1000%);
+    }
+
+    .headerbar .actions-container #mono {
+		filter: invert(1) sepia(1) hue-rotate(calc(var(--accent-hue) + 360deg)) saturate(500%);
+    }
+
+
+    .headerbar.centred {
+        justify-content: center;
+    }
+
+    .headerbar .actions-container {
+        margin-left: auto;
+    }
+</style>

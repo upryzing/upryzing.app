@@ -4,28 +4,51 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Upryzing">
 	<main>
-		<h1>Upryzing</h1>
-		<p>
-			Your conversations, your way.
-		</p>
+		<section id="tag">
+			<div class="overlay">
+				<div class="thingy topleft"></div>
+				<div class="thingy bottomright"></div>
+			</div>
+			<div class="slogan">
+				<h1>Your conversations,</h1>
+				<h1>your way.</h1>
+			</div>
+			<div class="buttons">
+				<a href="#"><button><span class="material-symbols-outlined">arrow_forward</span>no</button></a>
+			</div>
+		</section>
+		<section id="feat1"></section>
+		<section id="feat2"></section>
+		<section id="feat3"></section>
+		<section id="whatyawaitingfor"></section>
 	</main>
+	<footer></footer>
 </Layout>
 
 <style>
-	main {
-		margin: 3rem;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
+	.slogan > h1 {
+		font-size: 5em;
+		margin: unset;
+
+		white-space:nowrap;
+
+		transition: font-size .5s cubic-bezier(.44,-0.2,.23,1.11);
 	}
-	h1 {
-		color: var(--accent);
-		font-size: 4rem;
-		font-weight: 900;
-		line-height: 1;
-		margin-bottom: 1em;
+
+	@media screen and (max-width: 802px) {
+		.slogan > h1 {
+			font-size: 4em;
+		}
+	}
+	@media screen and (max-width: 650px) {
+		.slogan > h1 {
+			font-size: 3em;
+		}
+	}
+
+	@media screen and (max-width: 490px) {
+		.slogan > h1 {
+			font-size: 2em;
+		}
 	}
 </style>

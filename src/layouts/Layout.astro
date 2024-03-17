@@ -30,9 +30,20 @@ const { title } = Astro.props;
 		--background: #141314;
 	}
 	html {
+		width: 100%;
 		font-family: 'Inter', system-ui, sans-serif;
 		color: hsl(var(--accent-hue), 100%, 95%);
 		background: var(--background);
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		margin: 0;
+		width: 100%;
+		overflow-x: hidden;
 	}
 	code {
 		font-family:

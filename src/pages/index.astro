@@ -1,20 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout title="Upryzing">
 	<main>
 		<section id="tag">
 			<div class="overlay">
-				<div class="thingy topleft"></div>
-				<div class="thingy bottomright"></div>
+				<Icon name="spinny" class="thingy topleft"></Icon>
+				<Icon name="spinny" class="thingy bottomright"></Icon>
 			</div>
 			<div class="slogan">
 				<h1>Your conversations,</h1>
 				<h1>your way.</h1>
 			</div>
 			<div class="buttons">
-				<a href="#"><button><span class="material-symbols-outlined">arrow_forward</span>no</button></a>
+				<a href="#"><button>meow <Icon name="material-symbols:arrow-forward"></Icon></button></a>
+				<a href="#"><button>mrrp <Icon name="material-symbols:arrow-forward"></Icon></button></a>
 			</div>
 		</section>
 		<section id="feat1"></section>
@@ -35,9 +37,75 @@ import Layout from '../layouts/Layout.astro';
 		transition: font-size .5s cubic-bezier(.44,-0.2,.23,1.11);
 	}
 
+	.overlay {
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		overflow: clip;
+		background-color: red;
+	}
+
+	section#tag {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		height: 100vh;
+	}
+
+	section:not(#tag) {
+		background-color: aqua;
+		width: 100%;
+		height: 100vh;
+	}
+
+	.thingy {
+		--size: 400px;
+		--offset: -120px;
+		--timing: 50s;
+		display: block;
+		width: var(--size);
+		height: var(--size);
+		color: blue;
+
+		transition: all 500ms ease-in-out;
+	}
+
+	.thingy.topleft {
+		position: absolute;
+		top: var(--offset);
+		left: var(--offset);
+		animation-name: rotate;
+		animation-duration: var(--timing);
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+		animation-direction: normal;
+	}
+
+
+	.thingy.bottomright {
+		position: absolute;
+		bottom: var(--offset);
+		right: var(--offset);
+		animation-name: rotate;
+		animation-duration: var(--timing);
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+		animation-direction: normal;
+	}
+
 	@media screen and (max-width: 802px) {
 		.slogan > h1 {
 			font-size: 4em;
+		}
+
+		.thingy {
+			--size: 256px;
+			--timing: 30s;
 		}
 	}
 	@media screen and (max-width: 650px) {
@@ -49,6 +117,15 @@ import Layout from '../layouts/Layout.astro';
 	@media screen and (max-width: 490px) {
 		.slogan > h1 {
 			font-size: 2em;
+		}
+	}
+
+	@keyframes rotate {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
 		}
 	}
 </style>

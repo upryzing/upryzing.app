@@ -37,6 +37,31 @@ import { Icon } from "astro-icon/components";
 		transition: font-size .5s cubic-bezier(.44,-0.2,.23,1.11);
 	}
 
+	section#tag div.buttons {
+		display: flex;
+		flex-direction: row;
+		gap: 1rem;
+	}
+
+	section#tag div.buttons a {
+		text-decoration: none;
+	}
+
+	section#tag div.buttons button {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		background-color: pink;
+		border: none;
+		border-radius: 99999px;
+		padding: 15px 20px;
+		font-weight: 700;
+		font-size: 1.5em;
+
+		transition: all 500ms ease-in-out;
+	}
+
 	.overlay {
 		position: absolute;
 		z-index: -1;
@@ -55,6 +80,11 @@ import { Icon } from "astro-icon/components";
 		justify-content: center;
 		width: 100%;
 		height: 100vh;
+
+		padding-left: 2rem;
+		gap: 2rem;
+
+		transition: all 500ms ease-in-out;
 	}
 
 	section:not(#tag) {
@@ -107,16 +137,28 @@ import { Icon } from "astro-icon/components";
 			--size: 256px;
 			--timing: 30s;
 		}
+		
+		section#tag div.buttons button {
+			font-size: 1em;
+		}
 	}
 	@media screen and (max-width: 650px) {
 		.slogan > h1 {
 			font-size: 3em;
+		}
+
+		section#tag div.buttons button {
+			font-size: .8em;
 		}
 	}
 
 	@media screen and (max-width: 490px) {
 		.slogan > h1 {
 			font-size: 2em;
+		}
+
+		section#tag div.buttons button {
+			font-size: .6em;
 		}
 	}
 

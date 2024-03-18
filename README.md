@@ -1,8 +1,12 @@
-# Upryzing's Landing Page (upryzing.app)
+# Lily, Upryzing's Landing page
 
 This repository houses the source code for Upryzing's landing page ([upryzing.app](https://upryzing.app)), built with [Astro](https://astro.build/).
 
-# Development
+## Production deployment
+
+Lily is currently deployed on [upryzing.app](https://upryzing.app), thanks to Vercel.
+
+## Development
 
 Clone the repository locally, then install the required dependencies and run the app:
 

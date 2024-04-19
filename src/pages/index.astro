@@ -1,5 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import FeatureSection from "../components/FeatureSection.astro";
+import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 ---
 
@@ -7,34 +8,73 @@ import { Icon } from "astro-icon/components";
 	<main>
 		<section id="tag">
 			<div class="overlay">
-				<Icon name="spinny" class="thingy topleft"></Icon>
-				<Icon name="spinny" class="thingy bottomright"></Icon>
+				<Icon name="spinny" class="thingy topleft" />
+				<Icon name="spinny" class="thingy bottomright" />
 			</div>
 			<div class="slogan">
 				<h1>Your conversations,</h1>
 				<h1>your way.</h1>
 			</div>
 			<div class="buttons">
-				<a href="#"><button id="signup">meow <Icon name="material-symbols:arrow-forward"></Icon></button></a>
-				<a href="#"><button id="login">mrrp <Icon name="material-symbols:arrow-forward"></Icon></button></a>
+				<a href="#"
+					><button id="signup"
+						>meow <Icon
+							name="material-symbols:arrow-forward"
+						/></button
+					></a
+				>
+				<a href="#"
+					><button id="login"
+						>mrrp <Icon
+							name="material-symbols:arrow-forward"
+						/></button
+					></a
+				>
 			</div>
 		</section>
-		<section id="feat1"></section>
-		<section id="feat2"></section>
-		<section id="feat3"></section>
-		<section id="whatyawaitingfor"></section>
+		<FeatureSection
+			title="Make it fun"
+			description="Upryzing is a new kind of social platform built by the community, for the community. Chat with your friends, rizz up that egirl, shitpost everywhere, and whatever else you do on Discord, now on an open source app."
+			type="left"
+			image="/assets/tbd_placeholder.webp"
+			alt="Image to be determined"
+		/>
+		<FeatureSection
+			title="Make it yours"
+			description="Beautiful out of the box, but if it’s not your style, that’s okay! Customize everything with CSS themes, or use the plentiful selection of native and web clients made by people just like you. "
+			type="right"
+			image="/assets/tbd_placeholder.webp"
+			alt="Image to be determined"
+		/>
+		<FeatureSection
+			title="Make it awesome"
+			description="Upryzing is completely open source, and community powered. Found a bug? Send a bug report, or even better, a pull request. Hate our guts, or want to build your own platform? Host your own Upryzing, we don’t mind. "
+			type="left"
+			image="/assets/tbd_placeholder.webp"
+			alt="Image to be determined"
+		/>
+		<FeatureSection title="What are you waiting for?" type="centre" />
 	</main>
 	<footer></footer>
 </Layout>
 
 <style>
+	main {
+		display: flex;
+		flex-direction: column;
+	}
+
+	main section:nth-child(2) {
+		border-radius: 25px 25px 0 0;
+	}
+
 	.slogan > h1 {
 		font-size: 5em;
 		margin: unset;
 
-		white-space:nowrap;
+		white-space: nowrap;
 
-		transition: font-size .5s cubic-bezier(.44,-0.2,.23,1.11);
+		transition: font-size 0.5s cubic-bezier(0.44, -0.2, 0.23, 1.11);
 	}
 
 	section#tag div.buttons {
@@ -48,7 +88,7 @@ import { Icon } from "astro-icon/components";
 	}
 
 	section#tag div.buttons button {
-		font-family: 'Inter', sans-serif;
+		font-family: "Inter", sans-serif;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -63,7 +103,7 @@ import { Icon } from "astro-icon/components";
 	}
 
 	section#tag div.buttons button#signup {
-		background-color: hsl(var(--accent-hue), 95%, 75%);
+		background-color: hsl(var(--accent-hue), 95%, 82%);
 	}
 
 	section#tag div.buttons button#login {
@@ -76,7 +116,7 @@ import { Icon } from "astro-icon/components";
 		z-index: -1;
 		top: 0;
 		left: 0;
-		height: 100%;
+		height: 115%;
 		width: 100%;
 		overflow: clip;
 	}
@@ -93,28 +133,26 @@ import { Icon } from "astro-icon/components";
 		gap: 2rem;
 
 		transition: all 500ms ease-in-out;
+		overflow: visible;
 	}
 
-	section:not(#tag) {
-		background-color: aqua;
-		width: 100%;
-		height: 100vh;
+	section:not(#tag, :last-of-type) {
 	}
 
 	.thingy {
 		--size: 400px;
-		--offset: -120px;
 		--timing: 50s;
 		display: block;
 		width: var(--size);
 		height: var(--size);
 		color: hsl(var(--accent-hue), 100%, 75%);
-		opacity: .05;
+		opacity: 0.05;
 
 		transition: all 500ms ease-in-out;
 	}
 
 	.thingy.topleft {
+		--offset: -150px;
 		position: absolute;
 		top: var(--offset);
 		left: var(--offset);
@@ -125,10 +163,15 @@ import { Icon } from "astro-icon/components";
 		animation-direction: normal;
 	}
 
-
 	.thingy.bottomright {
+		--offset: -100px;
 		position: absolute;
-		bottom: var(--offset);
+		/*
+			Since the container is a little bit lower, we have to adjust the offset by an arbitrary amount
+			I think 90px is a reasonable amount. Webdevs, please adjust as needed.
+		*/
+
+		bottom: calc(var(--offset) + 90px);
 		right: var(--offset);
 		animation-name: rotate;
 		animation-duration: var(--timing);
@@ -146,7 +189,7 @@ import { Icon } from "astro-icon/components";
 			--size: 256px;
 			--timing: 30s;
 		}
-		
+
 		section#tag div.buttons button {
 			font-size: 1em;
 		}
@@ -157,7 +200,7 @@ import { Icon } from "astro-icon/components";
 		}
 
 		section#tag div.buttons button {
-			font-size: .8em;
+			font-size: 0.8em;
 		}
 	}
 
@@ -167,7 +210,7 @@ import { Icon } from "astro-icon/components";
 		}
 
 		section#tag div.buttons button {
-			font-size: .6em;
+			font-size: 0.6em;
 		}
 	}
 

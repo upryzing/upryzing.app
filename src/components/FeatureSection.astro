@@ -1,0 +1,77 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"section"> {
+	/** Section title */
+	title: string;
+	/** Section description */
+	description?: string;
+	/** Image alignment type, defaults to centred */
+	type: "left" | "right" | "centre";
+	/** Optional image */
+	image?: string;
+	/** Optional image description, defaults to "No image description" */
+	alt?: string;
+	/** Possible links that a section could lead you to */
+	actions?: string[];
+}
+
+const { title, description, type, image, alt, ...rest } = Astro.props;
+---
+
+<section {...rest}>
+	{
+		image && type === "left" && (
+			<img
+				alt={alt ?? "No image description"}
+				title={alt ?? "No image description"}
+				src={image}
+			/>
+		)
+	}
+	<div class={type != "centre" ? "column" : "row"}>
+		<h2>{title}</h2>
+		<p>{description}</p>
+	</div>
+	{
+		image && type === "right" && (
+			<img
+				alt={alt ?? "No image description"}
+				title={alt ?? "No image description"}
+				src={image}
+			/>
+		)
+	}
+</section>
+
+<style>
+	section {
+		display: flex;
+		background: var(--background-tertiary);
+		flex-direction: row;
+		gap: 1rem;
+
+		padding: 0 1rem;
+		justify-content: center;
+		align-items: center;
+	}
+
+	section > .column {
+		display: flex;
+		flex-direction: column;
+	}
+
+	section > .row {
+		display: flex;
+		flex-direction: row;
+	}
+
+	section > img {
+		min-width: 500px;
+		width: 500%;
+		max-width: 700px;
+		height: min-content;
+		aspect-ratio: 1/1;
+		object-fit: scale-down;
+	}
+</style>

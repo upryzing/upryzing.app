@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon/components"
+import { Icon } from "astro-icon/components";
 interface Props {
 	variant: "default" | "centred";
 }
@@ -10,15 +10,28 @@ const { variant } = Astro.props;
 <header class=`headerbar ${variant}`>
 	<div class="logo-container">
 		<Icon id="logo" size={24} fill="currentColor" name="logo/mc" />
-		<Icon fill="hsl(var(--accent-hue), 100%, 95%);" size={96} name="wordmark" />
+		<Icon
+			fill="hsl(var(--accent-hue), 100%, 95%);"
+			size={96}
+			name="wordmark"
+		/>
 	</div>
-	{ variant !== "centred" && (
+	{
+		variant !== "centred" && (
 			<div class="actions-container">
 				<a class="github" href="#">
-					<Icon fill="hsl(var(--accent-hue), 100%, 95%);" size={24} name="gh" />
+					<Icon
+						fill="hsl(var(--accent-hue), 100%, 95%);"
+						size={24}
+						name="gh"
+					/>
 				</a>
 				<a class="fedi" href="#">
-					<Icon fill="hsl(var(--accent-hue), 100%, 95%);" size={24} name="fedi" />
+					<Icon
+						fill="hsl(var(--accent-hue), 100%, 95%);"
+						size={24}
+						name="fedi"
+					/>
 				</a>
 			</div>
 		)
@@ -37,6 +50,7 @@ const { variant } = Astro.props;
 
 		display: flex;
 		flex-flow: row nowrap;
+		z-index: 10;
 	}
 
 	.headerbar .logo-container svg,
@@ -45,11 +59,11 @@ const { variant } = Astro.props;
 	}
 
 	.headerbar .logo-container svg#logo {
-		color: hsl(var(--accent-hue), 100%, 75%);
+		color: hsl(var(--accent-hue), 100%, 82%);
 	}
 
 	.headerbar .logo-container,
-	.headerbar .actions-container{
+	.headerbar .actions-container {
 		display: flex;
 		align-items: center;
 		gap: 1rem;

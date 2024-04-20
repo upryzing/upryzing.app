@@ -53,7 +53,18 @@ import { Icon } from "astro-icon/components";
 			image="/assets/tbd_placeholder.webp"
 			alt="Image to be determined"
 		/>
-		<FeatureSection title="What are you waiting for?" type="centre" />
+		<FeatureSection
+			title="So, what are you waiting for?"
+			type="centre"
+			actions={[
+				{
+					title: "Sign Up",
+					icon: "material-symbols:arrow-forward",
+					link: "#"
+				}
+			]}
+			callout
+		/>
 	</main>
 	<footer></footer>
 </Layout>
@@ -65,6 +76,7 @@ import { Icon } from "astro-icon/components";
 	}
 
 	main section:nth-child(2) {
+		padding-top: 10rem;
 		border-radius: 25px 25px 0 0;
 	}
 
@@ -134,9 +146,6 @@ import { Icon } from "astro-icon/components";
 
 		transition: all 500ms ease-in-out;
 		overflow: visible;
-	}
-
-	section:not(#tag, :last-of-type) {
 	}
 
 	.thingy {

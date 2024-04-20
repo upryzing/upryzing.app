@@ -1,5 +1,12 @@
 ---
+import { Icon } from "astro-icon/components";
 import type { HTMLAttributes } from "astro/types";
+
+interface LinkAction {
+	title: string,
+	icon: string,
+	link: string
+}
 
 interface Props extends HTMLAttributes<"section"> {
 	/** Section title */
@@ -12,14 +19,25 @@ interface Props extends HTMLAttributes<"section"> {
 	image?: string;
 	/** Optional image description, defaults to "No image description" */
 	alt?: string;
+	/** Whether the section should be emphasised or not, defaults to false.*/
+	callout?: boolean
 	/** Possible links that a section could lead you to */
-	actions?: string[];
+	actions?: LinkAction[];
 }
 
-const { title, description, type, image, alt, ...rest } = Astro.props;
+const {
+	title,
+	description,
+	type,
+	image,
+	alt,
+	callout,
+	actions,
+	...rest
+} = Astro.props;
 ---
 
-<section {...rest}>
+<section {...rest} data-contains-actions={!!actions} data-callout={callout} data-layout-type={type}>
 	{
 		image && type === "left" && (
 			<img
@@ -42,18 +60,81 @@ const { title, description, type, image, alt, ...rest } = Astro.props;
 			/>
 		)
 	}
+	{actions && (
+		<div class="actions">
+			{actions.map(item => (
+				<a href={item.link}>
+					<button>
+						{item.title}
+						{item.icon && (
+							<Icon name={item.icon}></Icon>
+						)}
+					</button>
+				</a>
+			))}
+		</div>
+	)}
+	
 </section>
 
 <style>
 	section {
 		display: flex;
-		background: var(--background-tertiary);
 		flex-direction: row;
-		gap: 1rem;
+		gap: 2rem;
 
-		padding: 0 1rem;
+		padding: 4rem 2rem;
 		justify-content: center;
 		align-items: center;
+		height: fit-content;
+		transition: flex-direction 300ms ease-in-out;
+	}
+
+	section[data-callout] {
+		background: var(--background);
+	}
+	section:not([data-callout]) {
+		background: var(--background-tertiary);
+	}
+
+	section[data-contains-actions] {
+		flex-direction: column;
+	}
+
+	section[data-contains-actions] > div.actions {
+		display: flex;
+		flex-direction: row;
+	}
+
+	section[data-contains-actions] > div.actions a {
+		text-decoration: none;
+	}
+
+	section[data-contains-actions] > div.actions button {
+		font-family: "Inter", sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		border: none;
+		border-radius: 99999px;
+		padding: 15px 20px;
+		font-weight: 700;
+		font-size: 1.5em;
+
+		transition: all 500ms ease-in-out;
+	}
+
+	section[data-contains-actions] > div.actions button:first-of-type {
+		background-color: var(--accent);
+	}
+
+	section[data-contains-actions] > div.actions button:hover {
+		cursor: pointer;
+	}
+
+	section > :is(.column, .row) {
+		height: 100%;
 	}
 
 	section > .column {
@@ -66,12 +147,45 @@ const { title, description, type, image, alt, ...rest } = Astro.props;
 		flex-direction: row;
 	}
 
+	section > :is(.row, .column) > h2 {
+		font-size: 4em;
+		margin: 0;
+	}
+
+	section > :is(.row, .column) > p {
+		font-size: 1.5em;
+	}
+
 	section > img {
-		min-width: 500px;
+		min-width: 300px;
 		width: 500%;
-		max-width: 700px;
+		max-width: 400px;
 		height: min-content;
-		aspect-ratio: 1/1;
 		object-fit: scale-down;
+
+		transition: max-width 300ms ease-in-out;
+		border-radius: 2em;
+	}
+
+	@media screen and (min-width: 1200px) {
+		section > img {
+			max-width: 800px;
+		}
+	}
+
+	@media screen and (max-width: 630px) {
+		section {
+			flex-direction: column;
+		}
+
+		section > img {
+			width: 100%;
+			max-width: unset;
+			min-width: unset;
+		}
+
+		section[data-layout-type="right"] {
+			flex-direction: column-reverse;
+		}
 	}
 </style>

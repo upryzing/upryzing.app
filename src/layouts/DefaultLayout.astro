@@ -1,5 +1,6 @@
 ---
 import HeaderBar from "../components/HeaderBar.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
 	title: string;
@@ -24,14 +25,20 @@ const { title } = Astro.props;
 	<body>
 		<HeaderBar variant="default" />
 		<slot />
+		<Footer></Footer>
 	</body>
 </html>
 <style is:global>
+	/*
+		TODO: Locally include Inter, alternatively, use google fonts,
+		although that would make certain people mad...
+	*/
 	:root {
 		--accent: #dca3ff;
 		--accent-hue: 277deg;
 		--background: #141314;
 		--background-tertiary: #2c2133;
+		--background-emphasis: #0c070d;
 	}
 	html {
 		width: 100%;

@@ -1,0 +1,79 @@
+<footer>
+    <header>hehe yeah :3</header>
+    <div class="row categories">
+        <div class="column">
+            <h3>Stuff</h3>
+            <a href="#">stuff</a>
+            <a href="#">stuff</a>
+            <a href="#">stuff</a>
+            <a href="#">stuff</a>
+            <a href="#">stuff</a>
+            <a href="#">stuff</a>
+            <a href="#">stuff</a>
+        </div>
+        <div class="column">
+            <h3>Legalese</h3>
+            <a href="#">stuff</a>
+            <a href="#">stuff</a>
+            <a href="#">stuff</a>
+            <a href="#">stuff</a>
+            <a href="#">stuff</a>
+            <a href="#">stuff</a>
+            <a href="#">stuff</a>
+        </div>
+        <div class="column">
+            <h3>Socials</h3>
+            <a href="#">stuff</a>
+            <a href="#">stuff</a>
+            <a href="#">stuff</a>
+            <a href="#">stuff</a>
+            <a href="#">stuff</a>
+            <a href="#">stuff</a>
+            <a href="#">stuff</a>
+        </div>
+    </div>
+</footer>
+
+<style>
+    /* TODO: merge the .column and .row utility classes onto it's own file */
+    footer {
+        padding: 2rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--background-emphasis);
+    }
+
+    footer header {
+        font-size: 4em;
+    }
+
+    footer :is(.row, .column) {
+        display: flex;
+    }
+
+    footer .row {
+        flex-direction: row;
+    }
+
+    footer .column {
+        flex-direction: column;
+    }
+
+    footer .categories {
+        gap: 3rem;
+    }
+
+    footer .categories .column {
+        gap: .2rem;
+    }
+
+    footer .categories h3 {
+        font-size: 2em;
+        margin: 0;
+    }
+
+    footer .categories a {
+        color: var(--accent);
+    }
+</style>

@@ -1,7 +1,13 @@
 <footer>
-    <header>hehe yeah :3</header>
+    <header>
+        <picture>
+            <!-- It's sad that figma doesn't support JXL exports -->
+            <source srcset="/public/assets/wm_logo2x.png, /public/assets/wm_logo4x.png 4x">
+            <img src="/public/assets/wm_logo2x.png">
+        </picture>
+    </header>
     <div class="row categories">
-        <div class="column">
+        <section class="column">
             <h3>Stuff</h3>
             <a href="#">stuff</a>
             <a href="#">stuff</a>
@@ -10,8 +16,8 @@
             <a href="#">stuff</a>
             <a href="#">stuff</a>
             <a href="#">stuff</a>
-        </div>
-        <div class="column">
+        </section>
+        <section class="column">
             <h3>Legalese</h3>
             <a href="#">stuff</a>
             <a href="#">stuff</a>
@@ -20,8 +26,8 @@
             <a href="#">stuff</a>
             <a href="#">stuff</a>
             <a href="#">stuff</a>
-        </div>
-        <div class="column">
+        </section>
+        <section class="column">
             <h3>Socials</h3>
             <a href="#">stuff</a>
             <a href="#">stuff</a>
@@ -30,7 +36,12 @@
             <a href="#">stuff</a>
             <a href="#">stuff</a>
             <a href="#">stuff</a>
-        </div>
+        </section>
+    </div>
+    <div class="credits">
+        <p>Made with ❤️ by Inderix, Amy and the Upryzing team</p>
+        <span role="none" class="dotDivider">·</span>
+        <a href="https://github.com/upryzing">Source Code</a>
     </div>
 </footer>
 
@@ -45,7 +56,11 @@
     }
 
     footer header {
-        font-size: 4em;
+        margin-bottom: 1rem;
+    }
+
+    footer header img {
+        max-width: 15rem;
     }
 
     footer :is(.row, .column) {
@@ -73,7 +88,21 @@
         margin: 0;
     }
 
-    footer .categories a {
+    footer a {
         color: var(--accent);
+    }
+
+    footer .credits {
+        display: inline-flex;
+        align-items: center;
+        gap: .5ch;
+    }
+
+    footer .credits :is(p, a) {
+        font-size: .8em;
+    }
+
+    footer .credits .dotDivider {
+        font-size: 2em;
     }
 </style>

@@ -64,7 +64,7 @@ const {
 		<div class="actions">
 			{actions.map(item => (
 				<a href={item.link}>
-					<button>
+					<button class="ripple">
 						{item.title}
 						{item.icon && (
 							<Icon name={item.icon}></Icon>
@@ -172,6 +172,21 @@ const {
 
 		transition: max-width 300ms ease-in-out;
 		border-radius: 2em;
+	}
+
+	section[data-contains-actions] > div.actions button.ripple {
+		background-position: center;
+  		transition: background 0.8s;
+	}
+
+	section[data-contains-actions] > div.actions button.ripple:hover {
+		background: var(--accent) radial-gradient(circle, transparent 1%, var(--accent) 1%) center/15000%;
+	}
+
+	section[data-contains-actions] > div.actions button.ripple:active {
+		background-color: hsl(var(--accent-hue), 90%, 75%);
+  		background-size: 100%;
+  		transition: background 0s;
 	}
 
 	@media screen and (min-width: 1200px) {

@@ -111,6 +111,7 @@ import { Icon } from "astro-icon/components";
 		font-size: 1.5em;
 
 		transition: all 500ms ease-in-out;
+		transition: font-size 500s ease-in-out;
 	}
 
 	section#tag div.buttons button:hover {
@@ -227,6 +228,14 @@ import { Icon } from "astro-icon/components";
 			--timing: 30s;
 		}
 
+		.thingy.bottomright {
+			--offset: -50px;
+		}
+
+		.thingy.topleft {
+			--offset: -75px
+		}
+
 		section#tag div.buttons button {
 			font-size: 1em;
 		}
@@ -237,17 +246,33 @@ import { Icon } from "astro-icon/components";
 		}
 
 		section#tag div.buttons button {
-			font-size: 0.8em;
+			font-size: 1em;
 		}
 	}
 
 	@media screen and (max-width: 490px) {
 		.slogan > h1 {
-			font-size: 2em;
+			font-size: 2.5em;
 		}
 
 		section#tag div.buttons button {
-			font-size: 0.6em;
+			font-size: 1em;
+		}
+	}
+
+	@media screen and (max-width: 490px) {
+		.slogan > h1 {
+			font-size: 2.5em;
+		}
+
+		section#tag div.buttons button {
+			font-size: 1em;
+		}
+	}
+
+	@media screen and (max-width: 425px) {
+		.slogan > h1 {
+			font-size: 2em;
 		}
 	}
 

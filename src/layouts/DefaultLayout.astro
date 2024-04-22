@@ -21,6 +21,17 @@ const { title } = Astro.props;
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<meta name="description" content="Your conversations, your way.">
+		<meta property="og:title" content="Upryzing"> 
+		<meta property="og:url" content="https://upryzing.app">
+		<meta property="og:description" content="Your conversations, your way.">
+		<!-- <meta property="og:image" content="/path/to/image">  TODO -->
+		<!-- <meta property="og:image:alt" content="OG Image Description"> TODO -->
+		<meta property="og:locale" content="en_US">
+		<meta property="og:type" content="website">
+		<!-- <meta name="twitter:card" content="large-image-twitter.jpg"> TODO -->
+		<link rel="canonical" href="https://upryzing.app">
+		<meta name="theme-color" content="#dca3ff">
 	</head>
 	<body>
 		<HeaderBar variant="default" />
@@ -29,10 +40,6 @@ const { title } = Astro.props;
 	</body>
 </html>
 <style is:global>
-	/*
-		TODO: Locally include Inter, alternatively, use google fonts,
-		although that would make certain people mad...
-	*/
 	@import url("/fonts/inter.css");
 	
 	:root {
@@ -42,6 +49,12 @@ const { title } = Astro.props;
 		--background-tertiary: #2c2133;
 		--background-emphasis: #0c070d;
 	}
+
+	::selection {
+		background-color: var(--accent);
+		color: var(--background-emphasis);
+	}
+
 	html {
 		width: 100%;
 		font-family: "Inter", system-ui, sans-serif;

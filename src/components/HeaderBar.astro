@@ -8,14 +8,14 @@ const { variant } = Astro.props;
 ---
 
 <header class=`headerbar ${variant}`>
-	<div class="logo-container">
+	<a href="/">
 		<Icon id="logo" size={24} fill="currentColor" name="logo/mc" />
 		<Icon
 			fill="hsl(var(--accent-hue), 100%, 95%);"
 			size={96}
 			name="wordmark"
 		/>
-	</div>
+	</a>
 	{
 		variant !== "centred" && (
 			<div class="actions-container">
@@ -55,17 +55,21 @@ const { variant } = Astro.props;
 		user-select: none;
 		-webkit-user-select: none;
 	}
+	
+	.headerbar a {
+		display: block;
+	}
 
-	.headerbar .logo-container svg,
+	.headerbar a svg,
 	.headerbar .actions-container a svg {
 		color: hsl(var(--accent-hue), 100%, 95%);
 	}
 
-	.headerbar .logo-container svg#logo {
+	.headerbar a svg#logo {
 		color: hsl(var(--accent-hue), 100%, 82%);
 	}
 
-	.headerbar .logo-container,
+	.headerbar a,
 	.headerbar .actions-container {
 		display: flex;
 		align-items: center;

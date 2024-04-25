@@ -49,6 +49,8 @@ const { title } = Astro.props;
 		--background: #141314;
 		--background-tertiary: #2c2133;
 		--background-emphasis: #0c070d;
+		--scrollbar-background: var(--background-emphasis);
+		--scrollbar-thumb: #372b3f;
 	}
 
 	::selection {
@@ -63,6 +65,14 @@ const { title } = Astro.props;
 		background: var(--background);
 	}
 
+	body::-webkit-scrollbar {
+		background-color: var(--scrollbar-background);
+	}
+
+	body::-webkit-scrollbar-thumb {
+		background-color: var(--scrollbar-thumb);
+	}
+
 	* {
 		box-sizing: border-box;
 	}
@@ -73,6 +83,8 @@ const { title } = Astro.props;
 		overflow-x: hidden;
 		display: flex;
 		flex-direction: column;
+
+		scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-background);
 	}
 	code {
 		font-family:

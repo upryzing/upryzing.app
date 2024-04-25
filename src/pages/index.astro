@@ -2,14 +2,15 @@
 import FeatureSection from "../components/FeatureSection.astro";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 import { Icon } from "astro-icon/components";
+import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp"
 ---
 
 <DefaultLayout title="Upryzing">
 	<main>
-		<section id="tag">
-			<div class="overlay">
-				<Icon name="spinny" class="thingy topleft" />
-				<Icon name="spinny" class="thingy bottomright" />
+		<section id="tag" role="region">
+			<div class="overlay" role="presentation">
+				<Icon name="spinny" class="thingy topleft" role="presentation" />
+				<Icon name="spinny" class="thingy bottomright" role="presentation" />
 			</div>
 			<div class="slogan">
 				<h1>Your conversations,</h1>
@@ -36,22 +37,25 @@ import { Icon } from "astro-icon/components";
 			title="Make it fun"
 			description="Upryzing is a new kind of social platform built by the community, for the community. Chat with your friends, rizz up that egirl, shitpost everywhere, and whatever else you do on Discord, now on an open source app."
 			type="left"
-			image="/assets/tbd_placeholder.webp"
-			alt="Image to be determined"
+			image={TBDPlaceholder}
+			alt="Placeholder"
+			role="complementary"
 		/>
 		<FeatureSection
 			title="Make it yours"
 			description="Beautiful out of the box, but if it's not your style, that's okay! Customize everything with CSS themes, or use the plentiful selection of native and web clients made by people just like you. "
 			type="right"
-			image="/assets/tbd_placeholder.webp"
-			alt="Image to be determined"
+			image={TBDPlaceholder}
+			alt="Placeholder"
+			role="complementary"
 		/>
 		<FeatureSection
 			title="Make it awesome"
 			description="Upryzing is completely open source, and community powered. Found a bug? Send a bug report, or even better, a pull request. Hate our guts, or want to build your own platform? Host your own Upryzing, we don't mind. "
 			type="left"
-			image="/assets/tbd_placeholder.webp"
-			alt="Image to be determined"
+			image={TBDPlaceholder}
+			alt="Placeholder"
+			role="complementary"
 		/>
 		<FeatureSection
 			title="So, what are you waiting for?"
@@ -64,6 +68,7 @@ import { Icon } from "astro-icon/components";
 				}
 			]}
 			callout
+			role="complementary"
 		/>
 	</main>
 </Layout>

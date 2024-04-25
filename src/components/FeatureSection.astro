@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import type { HTMLAttributes } from "astro/types";
+import { Image } from "astro:assets";
 
 interface LinkAction {
 	title: string,
@@ -16,7 +17,7 @@ interface Props extends HTMLAttributes<"section"> {
 	/** Image alignment type, defaults to centred */
 	type: "left" | "right" | "centre";
 	/** Optional image */
-	image?: string;
+	image?: ImageMetadata;
 	/** Optional image description, defaults to "No image description" */
 	alt?: string;
 	/** Whether the section should be emphasised or not, defaults to false.*/
@@ -40,7 +41,7 @@ const {
 <section {...rest} data-contains-actions={!!actions} data-callout={callout} data-layout-type={type}>
 	{
 		image && type === "left" && (
-			<img
+			<Image
 				alt={alt ?? "No image description"}
 				title={alt ?? "No image description"}
 				src={image}
@@ -53,7 +54,7 @@ const {
 	</div>
 	{
 		image && type === "right" && (
-			<img
+			<Image
 				alt={alt ?? "No image description"}
 				title={alt ?? "No image description"}
 				src={image}

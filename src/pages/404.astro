@@ -1,0 +1,48 @@
+---
+import FeatureSection from "../components/FeatureSection.astro";
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+---
+
+<DefaultLayout title="404 | Upryzing">
+    <main>
+        <pre role="presentation">
+         <span>.-o=o-.</span>
+     ,  <span>/=o=o=o=\</span> .--.
+    _|\<span>|=o=O=o=O=|</span>    \
+__.'  a`<span>\=o=o=o=</span>(`\   /
+'.   a 4/`|.-""'`\ \ ;'`)   .---.
+  \   .'  /   .--'  |_.'   / .-._)
+   `)  _.'   /     /`-.__.' /
+    `'-.____;     /'-.___.-'
+            `"""`</pre>
+        <h2>404, page not found.</h2>
+    </main>
+</DefaultLayout>
+
+<style>
+    @import url("/fonts/jbmono.css");
+    main {
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h2 {
+        font-size: 3em;
+    }
+
+    pre {
+        font-size: 1.5em;
+        font-family: "Jetbrains Mono", monospace;
+        opacity: .3;
+        margin: 0;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    span {
+        color: var(--accent);
+    }
+</style>

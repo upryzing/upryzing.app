@@ -3,6 +3,18 @@ import FeatureSection from "../components/FeatureSection.astro";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
 
+<!--
+  TODO: Generate this page automatically by maybe using a template and some script to fetch all libraries 
+  The script should go as follows:
+    - Parse package.json for libraries located in the dependencies key
+    - Check npmjs.org for their license
+    - Download the license file
+    - Serialize to the following structure:
+      <dt>package</dt>
+      <dd><pre>license_content</pre><dd>
+    - Replace template with generated content
+-->
+
 <DefaultLayout title="Licenses | Upryzing">
     <main>
         <FeatureSection title="Licenses" type="centre" callout />

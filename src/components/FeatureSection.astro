@@ -12,6 +12,7 @@ interface LinkAction {
 interface Props extends HTMLAttributes<"section"> {
 	/** Section title */
 	title: string;
+	titleId: string;
 	/** Section description */
 	description?: string;
 	/** Image alignment type, defaults to centred */
@@ -34,11 +35,12 @@ const {
 	alt,
 	callout,
 	actions,
+	titleId,
 	...rest
 } = Astro.props;
 ---
 
-<section {...rest} data-contains-actions={!!actions} data-callout={callout} data-layout-type={type}>
+<section aria-labelledby={titleId} {...rest} data-contains-actions={!!actions} data-callout={callout} data-layout-type={type}>
 	{
 		image && type === "left" && (
 			<Image
@@ -49,7 +51,7 @@ const {
 		)
 	}
 	<div class={type != "centre" ? "column" : "row"}>
-		<h2>{title}</h2>
+		<h2 id={titleId}>{title}</h2>
 		<p>{description}</p>
 	</div>
 	{

@@ -3,9 +3,8 @@ import FeatureSection from "../components/FeatureSection.astro";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
 
-<DefaultLayout title="404 | Upryzing">
-    <main>
-        <pre role="presentation">
+<DefaultLayout title="404 | Upryzing" >
+<pre role="presentation" aria-label="Ascii art of a cat with a purple ball of yarn">
          <span>.-o=o-.</span>
      ,  <span>/=o=o=o=\</span> .--.
     _|\<span>|=o=O=o=O=|</span>    \
@@ -15,11 +14,10 @@ __.'  a`<span>\=o=o=o=</span>(`\   /
    `)  _.'   /     /`-.__.' /
     `'-.____;     /'-.___.-'
             `"""`</pre>
-        <h2>404, page not found.</h2>
-    </main>
+<h1 id="title">404, page not found.</h1>
 </DefaultLayout>
 
-<style>
+<style is:global>
     @import url("/fonts/jbmono.css");
     main {
         height: 80vh;
@@ -29,7 +27,7 @@ __.'  a`<span>\=o=o=o=</span>(`\   /
         justify-content: center;
     }
 
-    h2 {
+    h1 {
         font-size: 3em;
     }
 

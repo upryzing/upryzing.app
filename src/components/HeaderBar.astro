@@ -2,13 +2,17 @@
 import { Icon } from "astro-icon/components";
 interface Props {
 	variant: "default" | "centred";
+	isFilled?: boolean
 }
 
-const { variant } = Astro.props;
+const { variant, isFilled } = Astro.props;
 ---
 
-<header class=`headerbar ${variant}`>
-	<a href="/">
+<header
+	class:list={["headerbar", variant, { filled: isFilled ?? false }]}
+	aria-label="Page Header"
+>
+	<a href="/" aria-label="Go back home">
 		<Icon id="logo" size={24} fill="currentColor" name="logo/mc" />
 		<Icon
 			fill="hsl(var(--accent-hue), 100%, 95%);"
@@ -19,14 +23,14 @@ const { variant } = Astro.props;
 	{
 		variant !== "centred" && (
 			<div class="actions-container">
-				<a class="github" href="#">
+				<a class="fedi" href="#" aria-label="Upryzing's Fediverse account">
 					<Icon
 						fill="hsl(var(--accent-hue), 100%, 95%);"
 						size={24}
 						name="ph:fediverse-logo"
 					/>
 				</a>
-				<a class="fedi" href="#">
+				<a class="github" href="#" aria-label="Upryzing's Github account">
 					<Icon
 						fill="hsl(var(--accent-hue), 100%, 95%);"
 						size={24}
@@ -54,6 +58,10 @@ const { variant } = Astro.props;
 
 		user-select: none;
 		-webkit-user-select: none;
+	}
+
+	.headerbar.filled {
+		background: var(--background-emphasis);
 	}
 	
 	.headerbar a {

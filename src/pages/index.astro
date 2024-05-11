@@ -7,14 +7,13 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp"
 
 <DefaultLayout title="Upryzing">
 	<main>
-		<section id="tag" role="region">
+		<section id="tag">
 			<div class="overlay" role="presentation">
 				<Icon name="spinny" class="thingy topleft" role="presentation" />
 				<Icon name="spinny" class="thingy bottomright" role="presentation" />
 			</div>
 			<div class="slogan">
-				<h1>Your conversations,</h1>
-				<h1>your way.</h1>
+				<h1>Your conversations,<br/>your way.</h1>
 			</div>
 			<div class="buttons">
 				<a href="#"
@@ -35,6 +34,7 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp"
 		</section>
 		<FeatureSection
 			title="Make it fun"
+			titleId="section-fun"
 			description="Upryzing is a new kind of social platform built by the community, for the community. Chat with your friends, rizz up that egirl, shitpost everywhere, and whatever else you do on Discord, now on an open source app."
 			type="left"
 			image={TBDPlaceholder}
@@ -43,6 +43,7 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp"
 		/>
 		<FeatureSection
 			title="Make it yours"
+			titleId="section-you"
 			description="Beautiful out of the box, but if it's not your style, that's okay! Customize everything with CSS themes, or use the plentiful selection of native and web clients made by people just like you. "
 			type="right"
 			image={TBDPlaceholder}
@@ -51,6 +52,7 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp"
 		/>
 		<FeatureSection
 			title="Make it awesome"
+			titleId="section-awesome"
 			description="Upryzing is completely open source, and community powered. Found a bug? Send a bug report, or even better, a pull request. Hate our guts, or want to build your own platform? Host your own Upryzing, we don't mind. "
 			type="left"
 			image={TBDPlaceholder}
@@ -59,6 +61,7 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp"
 		/>
 		<FeatureSection
 			title="So, what are you waiting for?"
+			titleId="section-callout"
 			type="centre"
 			actions={[
 				{
@@ -74,11 +77,6 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp"
 </Layout>
 
 <style>
-	main {
-		display: flex;
-		flex-direction: column;
-	}
-
 	main section:nth-child(2) {
 		padding-top: 10rem;
 		border-radius: 25px 25px 0 0;

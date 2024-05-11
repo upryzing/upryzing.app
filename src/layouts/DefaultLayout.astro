@@ -1,12 +1,14 @@
 ---
 import HeaderBar from "../components/HeaderBar.astro";
 import Footer from "../components/Footer.astro";
+import SkipToContent from "../components/SkipToContent.astro"
 
 interface Props {
 	title: string;
+	filledHeaderbar?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, filledHeaderbar } = Astro.props;
 ---
 
 <!doctype html>
@@ -35,8 +37,11 @@ const { title } = Astro.props;
 		<link rel="sitemap" href="/sitemap-index.xml" />
 	</head>
 	<body>
-		<HeaderBar variant="default" />
-		<slot />
+		<SkipToContent />
+		<HeaderBar variant="default" isFilled={filledHeaderbar} />
+		<main id="main">
+			<slot />
+		</main>
 		<Footer></Footer>
 	</body>
 </html>
@@ -105,6 +110,11 @@ const { title } = Astro.props;
 	}
 
 	.column {
+		display: flex;
+		flex-direction: column;
+	}
+
+	main {
 		display: flex;
 		flex-direction: column;
 	}

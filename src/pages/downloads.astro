@@ -1,11 +1,90 @@
 ---
-import DefaultLayout from "../layouts/DefaultLayout.astro"
-import Carousel from "../components/Carousel.astro"
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import Carousel from "../components/Carousel.astro";
+import FeatureSection from "../components/FeatureSection.astro";
 ---
 
-<DefaultLayout title="Downloads | Upryzing" filledHeaderbar>
-	<Carousel items={[{
-			title: "meow",
-			background: "var(--accent)"
-		}]} />
+<DefaultLayout title="Downloads | Upryzing">
+	<FeatureSection
+		type="centre"
+		title="Downloads"
+		titleId="downloads-header"
+		callout
+	/>
+	<Carousel
+		items={[
+			{
+				title: "Desktop",
+				description:
+					"something something desktop client, something something tauri web app",
+				actions: [
+					{
+						title: "Linux",
+						iconName: "linux",
+						link: "#",
+					},
+					{
+						title: "MacOS",
+						iconName: "apple",
+						link: "#"
+					},
+					{
+						title: "Windows",
+						iconName: "windows",
+						link: "#"
+					},
+					{
+						title: "Source Code",
+						link: "#"
+					}
+				],
+			},
+			{
+				title: "Lavender",
+				description: "Description for the frontend PWA",
+				actions: [
+					{
+						title: "Open",
+						link: "#",
+					},
+					{
+						title: "SourceCode",
+						link: "https://github.com/upryzing/lavender"
+					}
+				],
+			},
+			{
+				title: "Hibiscus",
+				description: "Description for the hibiscus TUI client",
+				actions: [
+					{
+						title: "Platform",
+						link: "#",
+					},
+					{
+						title: "SourceCode",
+						link: "https://github.com/upryzing/hibiscus"
+					}
+				],
+			},
+			{
+				title: "Crescent",
+				description: "Description for the crescent android client",
+				actions: [
+					{
+						title: "Android",
+						link: "#",
+					},
+					{
+						title: "SourceCode",
+						link: "https://github.com/upryzing/hibiscus"
+					}
+				],
+			}
+		]}
+	/>
+
+	Reasons why you should use these clients go down here
+	<br />
+	this is a placeholder, of course
 </DefaultLayout>

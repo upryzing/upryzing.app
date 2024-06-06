@@ -2,18 +2,26 @@
 import FeatureSection from "../components/FeatureSection.astro";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
 import { Icon } from "astro-icon/components";
-import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp"
+import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 ---
 
 <DefaultLayout title="Upryzing">
 	<main>
 		<section id="tag">
 			<div class="overlay" role="presentation">
-				<Icon name="spinny" class="thingy topleft" role="presentation" />
-				<Icon name="spinny" class="thingy bottomright" role="presentation" />
+				<Icon
+					name="spinny"
+					class="thingy topleft"
+					role="presentation"
+				/>
+				<Icon
+					name="spinny"
+					class="thingy bottomright"
+					role="presentation"
+				/>
 			</div>
 			<div class="slogan">
-				<h1>Your conversations,<br/>your way.</h1>
+				<h1>Your conversations,<br />your way.</h1>
 			</div>
 			<div class="buttons">
 				<a href="#"
@@ -67,14 +75,14 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp"
 				{
 					title: "Sign Up",
 					icon: "material-symbols:arrow-forward",
-					link: "#"
-				}
+					link: "#",
+				},
 			]}
 			callout
 			role="complementary"
 		/>
 	</main>
-</Layout>
+</DefaultLayout>
 
 <style>
 	main section:nth-child(2) {
@@ -126,27 +134,35 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp"
 
 	section#tag div.buttons button.ripple {
 		background-position: center;
-  		transition: background 0.8s;
+		transition: background 0.8s;
 	}
 
 	section#tag div.buttons button.ripple#signup:hover {
-		background: var(--accent) radial-gradient(circle, transparent 1%, var(--accent) 1%) center/15000%;
+		background: var(--accent)
+			radial-gradient(circle, transparent 1%, var(--accent) 1%)
+			center/15000%;
 	}
 
 	section#tag div.buttons button.ripple#signup:active {
 		background-color: hsl(var(--accent-hue), 90%, 75%);
-  		background-size: 100%;
-  		transition: background 0s;
+		background-size: 100%;
+		transition: background 0s;
 	}
 
 	section#tag div.buttons button.ripple#login:hover {
-		background: hsl(var(--accent-hue), 20%, 15%) radial-gradient(circle, transparent 1%, hsl(var(--accent-hue), 20%, 15%) 1%) center/15000%;
+		background: hsl(var(--accent-hue), 20%, 15%)
+			radial-gradient(
+				circle,
+				transparent 1%,
+				hsl(var(--accent-hue), 20%, 15%) 1%
+			)
+			center/15000%;
 	}
 
 	section#tag div.buttons button.ripple#login:active {
 		background-color: hsl(var(--accent-hue), 50%, 10%);
-  		background-size: 100%;
-  		transition: background 0s;
+		background-size: 100%;
+		transition: background 0s;
 	}
 
 	section#tag div.buttons button#signup {
@@ -223,7 +239,7 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp"
 		animation-iteration-count: infinite;
 		animation-direction: normal;
 	}
-	
+
 	@media screen and (max-width: 802px) {
 		.slogan > h1 {
 			font-size: 4em;
@@ -239,7 +255,7 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp"
 		}
 
 		.thingy.topleft {
-			--offset: -75px
+			--offset: -75px;
 		}
 
 		section#tag div.buttons button {

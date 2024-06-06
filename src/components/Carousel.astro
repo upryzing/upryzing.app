@@ -1,0 +1,20 @@
+interface Item {
+	title: string,
+	background: string
+}
+interface Props {
+	item: Item[]
+}
+
+const { items } = Astro.props;
+
+---
+
+<div class="carousel container">
+	{items.map((item, index) => 
+		<div class="item" style={`background: ${item.background}`}>
+			{index == 0 && <h3>{item.title}</h3>}
+			{index > 0 && <h4>{item.title}</h4>}
+ 		</div>
+	)}
+</div>

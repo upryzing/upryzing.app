@@ -1,5 +1,11 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro"
+import Carousel from "../components/Carousel.astro"
 ---
 
-<DefaultLayout title="Downloads | Upryzing" filledHeaderbar></DefaultLayout>
+<DefaultLayout title="Downloads | Upryzing" filledHeaderbar>
+	<Carousel items={[{
+			title: "meow",
+			background: "var(--accent)"
+		}]} />
+</DefaultLayout>

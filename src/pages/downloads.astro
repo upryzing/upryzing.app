@@ -4,87 +4,191 @@ import Carousel from "../components/Carousel.astro";
 import FeatureSection from "../components/FeatureSection.astro";
 ---
 
-<DefaultLayout title="Downloads | Upryzing">
-	<FeatureSection
-		type="centre"
-		title="Downloads"
-		titleId="downloads-header"
-		callout
-	/>
-	<Carousel
-		items={[
-			{
-				title: "Desktop",
-				description:
-					"something something desktop client, something something tauri web app",
-				actions: [
-					{
-						title: "Linux",
-						iconName: "linux",
-						link: "#",
-					},
-					{
-						title: "MacOS",
-						iconName: "apple",
-						link: "#"
-					},
-					{
-						title: "Windows",
-						iconName: "windows",
-						link: "#"
-					},
-					{
-						title: "Source Code",
-						link: "#"
-					}
-				],
-			},
-			{
-				title: "Lavender",
-				description: "Description for the frontend PWA",
-				actions: [
-					{
-						title: "Open",
-						link: "#",
-					},
-					{
-						title: "SourceCode",
-						link: "https://github.com/upryzing/lavender"
-					}
-				],
-			},
-			{
-				title: "Hibiscus",
-				description: "Description for the hibiscus TUI client",
-				actions: [
-					{
-						title: "Platform",
-						link: "#",
-					},
-					{
-						title: "SourceCode",
-						link: "https://github.com/upryzing/hibiscus"
-					}
-				],
-			},
-			{
-				title: "Crescent",
-				description: "Description for the crescent android client",
-				actions: [
-					{
-						title: "Android",
-						link: "#",
-					},
-					{
-						title: "SourceCode",
-						link: "https://github.com/upryzing/hibiscus"
-					}
-				],
-			}
-		]}
-	/>
+<DefaultLayout title="Downloads | Upryzing" filledHeaderbar>
+	<div class="header">
+		<h2>Downloads</h2>
+	</div>
+	<div class="official">
+		<h3>Official Clients</h3>
+		<Carousel
+			items={[
+				{
+					title: "Desktop",
+					description:
+						"something something desktop client, something something tauri web app",
+					actions: [
+						{
+							title: "Linux",
+							iconName: "fa-brands:linux",
+							link: "#",
+						},
+						{
+							title: "MacOS",
+							iconName: "fa-brands:apple",
+							link: "#",
+						},
+						{
+							title: "Windows",
+							iconName: "fa-brands:windows",
+							link: "#",
+						},
+						{
+							title: "Source Code",
+							link: "#",
+						},
+					],
+				},
+				{
+					title: "Lavender",
+					description: "Description for the frontend PWA",
+					actions: [
+						{
+							title: "Open",
+							link: "#",
+							iconName: "fa-solid:globe",
+						},
+						{
+							title: "Source Code",
+							link: "https://github.com/upryzing/lavender",
+						},
+					],
+				},
+				{
+					title: "Hibiscus",
+					description: "Description for the hibiscus TUI client",
+					actions: [
+						{
+							title: "Platform",
+							link: "#",
+						},
+						{
+							title: "SourceCode",
+							link: "https://github.com/upryzing/hibiscus",
+						},
+					],
+				},
+				{
+					title: "Crescent",
+					description: "Description for the crescent android client",
+					actions: [
+						{
+							iconName: "fa-brands:android",
+							title: "Android",
+							link: "#",
+						},
+						{
+							title: "Source Code",
+							link: "https://github.com/upryzing/crescent",
+						},
+					],
+				},
+			]}
+		/>
+	</div>
+
+	<div class="unofficial">
+		<h3>Third Party Clients</h3>
+		<p>
+			List of community made clients compatible with Upryzing. Use them at your own risk!
+		</p>
+		<Carousel
+			noFirstHighlight
+			items={[
+				{
+					title: "ReTaped",
+					description: "Some description about retaped",
+					actions: [
+						{
+							link: "#",
+							title: "Open",
+							iconName: "fa-solid:globe",
+						},
+						{
+							link: "#",
+							title: "Source Code",
+						},
+					],
+				},
+				{
+					title: "RVMob",
+					description: "Some description about rvmob",
+					actions: [
+						{
+							link: "#",
+							title: "Download for android",
+							iconName: "fa-brands:android",
+						},
+						{
+							link: "#",
+							title: "Open in your browser",
+							iconName: "fa-solid:globe",
+						},
+						{
+							link: "#",
+							title: "Source Code",
+						},
+					],
+				},
+				{
+					title: "Mutiny",
+					description: "Some description about mutiny",
+					actions: [
+						{
+							link: "#",
+							title: "Get on Flathub",
+							iconName: "platforms/flathub",
+						},
+						{
+							link: "#",
+							title: "Source Code",
+						},
+					],
+				},
+				{
+					title: "Svolte",
+					description: "Some description about svolte",
+					actions: [
+						{
+							link: "#",
+							title: "Open in your browser",
+							iconName: "fa-solid:globe",
+						},
+						{
+							link: "#",
+							title: "Source Code",
+						},
+					],
+				},
+			]}
+		/>
+		<p>
+			This list is community curated. So, if you want to add your client(s) to this list, create an issue to our website and we will happily review it!
+		</p>
+	</div>
 
 	Reasons why you should use these clients go down here
 	<br />
 	this is a placeholder, of course
+
+	<style>
+		.header {
+			margin-top: 3rem;
+		}
+
+		.header h2 {
+			margin-left: 1rem;
+			font-size: 3em;
+			margin-bottom: 0;
+		}
+
+		:is(.official, .unofficial) h3 {
+			margin-left: 1rem;
+			font-size: 2.5em;
+		}
+
+		.unofficial p {
+			font-size: 1.2em;
+			margin-left: 1rem;
+		}
+	</style>
 </DefaultLayout>

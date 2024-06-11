@@ -13,14 +13,21 @@ interface Item {
 
 interface Props {
 	items: Item[];
+	noFirstHighlight?: boolean;
 }
 
-const { items } = Astro.props;
+const { items, noFirstHighlight } = Astro.props;
 ---
 
 <div class="gradient container">
 	<div class="overlay"></div>
-	<div class="carousel container">
+	<div
+		class:list={[
+			"carousel",
+			"container",
+			{ "no-first-hl": noFirstHighlight },
+		]}
+	>
 		{
 			items.map((item, index) => (
 				<div class="item" tabindex={index}>
@@ -32,14 +39,14 @@ const { items } = Astro.props;
 							{item.actions.map((action) =>
 								action.iconName ? (
 									<a
-										class="btn switcheroo"
+										class="btn"
 										href={action.link}
+										title={action.title}
 									>
 										<Icon
 											id="icon"
-											name={`fa-brands:${action.iconName}`}
+											name={action.iconName}
 										/>
-										<span id="title">{action.title}</span>
 									</a>
 								) : (
 									<a class="btn" href={action.link}>
@@ -87,7 +94,7 @@ const { items } = Astro.props;
 		background: linear-gradient(to right, transparent, var(--background));
 	}
 
-	.carousel .item {
+	.carousel .item {	
 		display: flex;
 		flex-direction: column;
 		background: transparent;
@@ -115,7 +122,7 @@ const { items } = Astro.props;
 		white-space: break-spaces;
 	}
 
-	.carousel .item:first-of-type {
+	.carousel:not(.no-first-hl) .item:first-of-type {
 		background: #dca3ff;
 		color: var(--background-emphasis);
 	}
@@ -132,17 +139,36 @@ const { items } = Astro.props;
 		justify-content: space-between;
 		gap: 1rem;
 		border-radius: 99999px;
-		padding: 15px 20px;
+		padding: 20px;
 
-		width: fit-content;
+		height: 1rem;
 
 		border: 1px solid var(--background-tertiary);
 		color: hsl(var(--accent-hue), 100%, 95%);
-		transition: all 500ms ease-in-out;
+		transition: all 200ms ease-in-out;
 	}
 
-	.carousel .item:first-of-type a.btn {
+	.carousel:not(.no-first-hl) .item:first-of-type a.btn {
 		color: var(--background-emphasis);
+	}
+
+	.carousel .item a.btn:hover {
+		background: hsla(var(--accent-hue), 80%, 65%, 0.5);
+		filter: grayscale(50%) contrast(50%);
+	}
+
+	/*
+	.btn.switcheroo {
+		width: 3.5rem;
+	}
+
+	.btn.switcheroo:hover {
+		width: 100%;
+	}
+	*/
+
+	.btn.switcheroo svg#icon {
+		flex-shrink: 0;
 	}
 
 	.btn.switcheroo span#title {

@@ -20,6 +20,9 @@ importers:
       '@iconify-json/fa-brands':
         specifier: ^1.1.8
         version: 1.1.8
+      '@iconify-json/fa-solid':
+        specifier: ^1.1.8
+        version: 1.1.8
       '@iconify-json/material-symbols':
         specifier: ^1.1.82
         version: 1.1.82
@@ -500,6 +503,9 @@ packages:
 
   '@iconify-json/fa-brands@1.1.8':
     resolution: {integrity: sha512-0HVT1+7hDww2vTtGyX4maUyiEXDYd6CK57bOGJ3hc3fjmXpMI9QKdej21pPSv1jBZ2nGzTlg8WJ2yNtN88/lFQ==}
+
+  '@iconify-json/fa-solid@1.1.8':
+    resolution: {integrity: sha512-o1Z+pvz+bidq8lqXC8uOhBxlJ19NEH87TQ6JSXOQPQJ8zDIMpx2nbDFJjFtR5nTWQXLPRGEb0NO9NJAvalxeiw==}
 
   '@iconify-json/material-symbols@1.1.82':
     resolution: {integrity: sha512-E67LgMFiAbEVF7rE38ulZU6NeXcPvayFF4hUUqt3g33tWrLsDNqEFTSsPt03l34rH5uGGtHIakTqtBlZ+/hRkw==}
@@ -2951,6 +2957,10 @@ snapshots:
     optional: true
 
   '@iconify-json/fa-brands@1.1.8':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/fa-solid@1.1.8':
     dependencies:
       '@iconify/types': 2.0.0
 

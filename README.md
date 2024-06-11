@@ -1,4 +1,4 @@
-# Lily, Upryzing's Landing page
+# Upryzing's Landing Page (Lily)
 
 This repository houses the source code for Upryzing's landing page ([upryzing.app](https://upryzing.app)), built with [Astro](https://astro.build/).
 

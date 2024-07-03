@@ -7,5 +7,4 @@ export default defineConfig({
   integrations: [icon({
     iconDir: "public/icons/"
   }), sitemap()],
-  output: "server"
 });

@@ -23,6 +23,7 @@ const { variant, isFilled } = Astro.props;
 	{
 		variant !== "centred" && (
 			<div class="actions-container">
+				{/* TODO: uncomment once we have an account
 				<a class="fedi" href="#" aria-label="Upryzing's Fediverse account">
 					<Icon
 						fill="hsl(var(--accent-hue), 100%, 95%);"
@@ -30,7 +31,8 @@ const { variant, isFilled } = Astro.props;
 						name="ph:fediverse-logo"
 					/>
 				</a>
-				<a class="github" href="#" aria-label="Upryzing's Github account">
+				*/}
+				<a class="github" href="https://github.com/upryzing" aria-label="Upryzing's GitHub organisation">
 					<Icon
 						fill="hsl(var(--accent-hue), 100%, 95%);"
 						size={24}

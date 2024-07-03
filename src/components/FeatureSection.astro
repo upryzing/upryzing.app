@@ -1,0 +1,210 @@
+---
+import { Icon } from "astro-icon/components";
+import type { HTMLAttributes } from "astro/types";
+import { Image } from "astro:assets";
+
+interface LinkAction {
+	title: string,
+	icon: string,
+	link: string
+}
+
+interface Props extends HTMLAttributes<"section"> {
+	/** Section title */
+	title: string;
+	titleId: string;
+	/** Section description */
+	description?: string;
+	/** Image alignment type, defaults to centred */
+	type: "left" | "right" | "centre";
+	/** Optional image */
+	image?: ImageMetadata;
+	/** Optional image description, defaults to "No image description" */
+	alt?: string;
+	/** Whether the section should be emphasised or not, defaults to false.*/
+	callout?: boolean
+	/** Possible links that a section could lead you to */
+	actions?: LinkAction[];
+}
+
+const {
+	title,
+	description,
+	type,
+	image,
+	alt,
+	callout,
+	actions,
+	titleId,
+	...rest
+} = Astro.props;
+---
+
+<section aria-labelledby={titleId} {...rest} data-contains-actions={!!actions} data-callout={callout} data-layout-type={type}>
+	{
+		image && type === "left" && (
+			<Image
+				alt={alt ?? "No image description"}
+				title={alt ?? "No image description"}
+				src={image}
+			/>
+		)
+	}
+	<div class={type != "centre" ? "column" : "row"}>
+		<h2 id={titleId}>{title}</h2>
+		<p>{description}</p>
+	</div>
+	{
+		image && type === "right" && (
+			<Image
+				alt={alt ?? "No image description"}
+				title={alt ?? "No image description"}
+				src={image}
+			/>
+		)
+	}
+	{actions && (
+		<div class="actions">
+			{actions.map(item => (
+				<a href={item.link}>
+					<button class="ripple">
+						{item.title}
+						{item.icon && (
+							<Icon name={item.icon}></Icon>
+						)}
+					</button>
+				</a>
+			))}
+		</div>
+	)}
+	
+</section>
+
+<style>
+	section {
+		display: flex;
+		flex-direction: row;
+		gap: 2rem;
+
+		padding: 4rem 2rem;
+		justify-content: center;
+		align-items: center;
+		height: fit-content;
+		transition: flex-direction 300ms ease-in-out;
+	}
+
+	section[data-callout] {
+		background: var(--background);
+	}
+	section:not([data-callout]) {
+		background: var(--background-tertiary);
+	}
+
+	section[data-contains-actions] {
+		flex-direction: column;
+		gap: 4rem;
+		padding-top: 10rem;
+		padding-bottom: 5rem;
+	}
+
+	section[data-contains-actions] h2 {
+		font-style: italic;
+	}
+
+	section[data-contains-actions] > div.actions {
+		display: flex;
+		flex-direction: row;
+	}
+
+	section[data-contains-actions] > div.actions a {
+		text-decoration: none;
+	}
+
+	section[data-contains-actions] > div.actions button {
+		font-family: "Inter", sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		border: none;
+		border-radius: 99999px;
+		padding: 20px;
+		font-weight: 600;
+		font-size: 1.5em;
+
+		transition: all 500ms ease-in-out;
+	}
+
+	section[data-contains-actions] > div.actions button:first-of-type {
+		background-color: var(--accent);
+	}
+
+	section[data-contains-actions] > div.actions button:hover {
+		cursor: pointer;
+	}
+
+	section > :is(.column, .row) {
+		height: 100%;
+	}
+
+	section > :is(.row, .column) > h2 {
+		font-size: 4em;
+		margin: 0;
+	}
+
+	section > :is(.row, .column) > p {
+		font-size: 1.5em;
+	}
+
+	section > img {
+		min-width: 300px;
+		width: 500%;
+		max-width: 400px;
+		height: min-content;
+		object-fit: scale-down;
+
+		transition: max-width 300ms ease-in-out;
+		border-radius: 2em;
+
+		user-select: none;
+		-webkit-user-select: none;
+		-webkit-user-drag: none;
+	}
+
+	section[data-contains-actions] > div.actions button.ripple {
+		background-position: center;
+  		transition: background 0.8s;
+	}
+
+	section[data-contains-actions] > div.actions button.ripple:hover {
+		background: var(--accent) radial-gradient(circle, transparent 1%, var(--accent) 1%) center/15000%;
+	}
+
+	section[data-contains-actions] > div.actions button.ripple:active {
+		background-color: hsl(var(--accent-hue), 90%, 75%);
+  		background-size: 100%;
+  		transition: background 0s;
+	}
+
+	@media screen and (min-width: 1200px) {
+		section > img {
+			max-width: 800px;
+		}
+	}
+
+	@media screen and (max-width: 630px) {
+		section {
+			flex-direction: column;
+		}
+
+		section > img {
+			width: 100%;
+			max-width: unset;
+			min-width: unset;
+		}
+
+		section[data-layout-type="right"] {
+			flex-direction: column-reverse;
+		}
+	}
+</style>

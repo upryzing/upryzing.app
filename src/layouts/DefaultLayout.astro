@@ -1,0 +1,128 @@
+---
+import HeaderBar from "../components/HeaderBar.astro";
+import Footer from "../components/Footer.astro";
+import SkipToContent from "../components/SkipToContent.astro"
+
+interface Props {
+	title: string;
+	filledHeaderbar?: boolean;
+}
+
+const { title, filledHeaderbar } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="description"
+			content="Your conversations, your way. Connect with Upryzing."
+		/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content="Your conversations, your way.">
+		<meta property="og:title" content="Upryzing"> 
+		<meta property="og:url" content="https://upryzing.app">
+		<meta property="og:description" content="Your conversations, your way.">
+		<!-- <meta property="og:image" content="/path/to/image">  TODO -->
+		<!-- <meta property="og:image:alt" content="OG Image Description"> TODO -->
+		<meta property="og:locale" content="en_US">
+		<meta property="og:type" content="website">
+		<!-- <meta name="twitter:card" content="large-image-twitter.jpg"> TODO -->
+		<link rel="canonical" href="https://upryzing.app">
+		<meta name="theme-color" content="#dca3ff">
+		<link rel="sitemap" href="/sitemap-index.xml" />
+	</head>
+	<body>
+		<SkipToContent />
+		<HeaderBar variant="default" isFilled={filledHeaderbar} />
+		<main id="main">
+			<slot />
+		</main>
+		<Footer></Footer>
+	</body>
+</html>
+<style is:global>
+	@import url("/fonts/inter.css");
+	
+	:root {
+		/* TODO: Maybe generate this automatically? */
+		--accent: #dca3ff;
+		--accent-hue: 277deg;
+		--background: #141314;
+		--background-tertiary: #2c2133;
+		--background-emphasis: #0c070d;
+		--scrollbar-background: var(--background-emphasis);
+		--scrollbar-thumb: #372b3f;
+		--foreground: hsl(var(--accent-hue), 100%, 95%);
+	}
+
+	::selection {
+		background-color: var(--accent);
+		color: var(--background-emphasis);
+	}
+
+	html {
+		width: 100%;
+		font-family: "Inter", system-ui, sans-serif;
+		color: var(--foreground);
+		background: var(--background);
+		scrollbar-color: var(--accent) var(--scrollbar-background);
+	}
+	
+
+	body {
+		margin: 0;
+		width: 100%;
+		overflow-x: hidden;
+		display: flex;
+		flex-direction: column;
+	}
+
+	body::-webkit-scrollbar {
+		background-color: var(--scrollbar-background);
+	}
+
+	body::-webkit-scrollbar-thumb {
+		background-color: var(--scrollbar-thumb);
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+
+	.row {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.column {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		gap: .5rem;
+	}
+
+	main {
+		display: flex;
+		flex-direction: column;
+	}
+</style>

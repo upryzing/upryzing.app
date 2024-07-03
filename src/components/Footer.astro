@@ -1,0 +1,98 @@
+<footer>
+    <div class="logo">
+        <picture>
+            <!-- It's sad that figma doesn't support JXL exports -->
+            <source srcset="/public/assets/wm_logo2x.png, /public/assets/wm_logo4x.png 4x">
+            <img loading="lazy" src="/public/assets/wm_logo2x.png" alt="Upryzing's Logo, a lightning bolt overlaid on top of outlines of the same bolt, but slightly tilted ">
+        </picture>
+    </div>
+    <div class="row categories">
+        <section class="column">
+            <h2>Stuff</h2>
+            <!-- TODO: either unfinished or blocked until launch
+            <a href="#">Blog</a>
+            <a href="#">Support</a>
+            <a href="/downloads">Download centre</a>
+            <a href="/why-upryzing">Why upryzing?</a>
+            <a href="/about">Our team</a>
+            <a href="#">Support us</a>
+        -->
+            <a href="/sitemap-index.xml">Sitemap</a>
+            <a href="/licenses">Licenses</a>
+        </section>
+        <!-- TODO: ditto
+        <section class="column">
+            <h2>Legalese</h2>
+            <a href="/tos">Terms of service</a>
+            <a href="/community-guidelines">Public server guidelines</a>
+            <a href="/privacy">Privacy policy</a>
+            <a href="/legal-summary">Too long, didn't read</a>
+        </section>
+    -->
+        <section class="column">
+            <h2>Socials</h2>
+            <a href="https://github.com/upryzing">GitHub</a>
+            <!-- TODO: create an account <a href="#">Upryzing on the fediverse</a> -->
+        </section>
+    </div>
+    <div class="credits row">
+        <p>Made with ❤️ by Inderix, Amy and the Upryzing team</p>
+        <span role="none" class="dotDivider">·</span>
+        <a href="https://github.com/upryzing/upryzing.app">Source code</a>
+    </div>
+</footer>
+
+<style>
+    /* TODO: merge the .column and .row utility classes onto it's own file */
+    footer {
+        padding: 2rem 2rem 1rem 2rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--background-emphasis);
+
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+    footer .logo {
+        margin-bottom: 1rem;
+    }
+
+    footer .logo img {
+        max-width: 15rem;
+        -webkit-user-drag: none;
+    }
+
+    footer .categories {
+        gap: 3rem;
+        flex-wrap: wrap;
+    }
+
+    footer .categories .column {
+        gap: .4rem;
+    }
+
+    footer .categories h2 {
+        font-size: 2em;
+        margin: 0;
+    }
+
+    footer a {
+        color: var(--accent);
+    }
+
+    footer .credits {
+        display: inline-flex;
+        align-items: center;
+        gap: .5ch;
+    }
+
+    footer .credits :is(p, a) {
+        font-size: .8em;
+    }
+
+    footer .credits .dotDivider {
+        font-size: 2em;
+    }
+</style>

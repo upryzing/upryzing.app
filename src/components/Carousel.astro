@@ -1,0 +1,201 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Item {
+	title: string;
+	description?: string;
+	actions?: {
+		iconName?: string;
+		title: string;
+		link: string;
+	}[];
+}
+
+interface Props {
+	items: Item[];
+	noFirstHighlight?: boolean;
+}
+
+const { items, noFirstHighlight } = Astro.props;
+---
+
+<div class="gradient container">
+	<div class="overlay"></div>
+	<div
+		class:list={[
+			"carousel",
+			"container",
+			{ "no-first-hl": noFirstHighlight },
+		]}
+	>
+		{
+			items.map((item, index) => (
+				<div class="item" tabindex={index}>
+					{index == 0 && <h3>{item.title}</h3>}
+					{index > 0 && <h4>{item.title}</h4>}
+					{item.description && <p>{item.description}</p>}
+					{item.actions && (
+						<div class="wrapper">
+							{item.actions.map((action) =>
+								action.iconName ? (
+									<a
+										class="btn"
+										href={action.link}
+										title={action.title}
+									>
+										<Icon
+											id="icon"
+											name={action.iconName}
+										/>
+									</a>
+								) : (
+									<a class="btn" href={action.link}>
+										{action.title}
+									</a>
+								),
+							)}
+						</div>
+					)}
+				</div>
+			))
+		}
+	</div>
+</div>
+
+<style>
+	.gradient.container {
+		width: 100vw;
+		height: 100%;
+
+		position: relative;
+	}
+
+	.carousel.container {
+		display: flex;
+		min-width: 100vw;
+		height: 25rem;
+
+		padding: 8px 64px 32px 16px;
+		gap: 8px;
+
+		overflow-x: scroll;
+		position: relative;
+	}
+
+	.gradient .overlay {
+		position: absolute;
+		width: 15%;
+		height: 100%;
+		top: 0;
+		right: 0;
+		z-index: 1;
+		pointer-events: none;
+
+		background: linear-gradient(to right, transparent, var(--background));
+	}
+
+	.carousel .item {	
+		display: flex;
+		flex-direction: column;
+		background: transparent;
+		width: 35rem;
+		border: 1px solid var(--background-tertiary);
+
+		color: #fff;
+
+		flex-shrink: 0;
+
+		padding: 20px;
+		border-radius: 16px;
+	}
+
+	.carousel .item :is(h3, h4) {
+		font-size: 3em;
+		margin: 1rem 0;
+	}
+
+	.carousel .item p {
+		font-size: 1.5em;
+
+		text-wrap: pretty;
+		overflow-wrap: break-word;
+		white-space: break-spaces;
+	}
+
+	.carousel:not(.no-first-hl) .item:first-of-type {
+		background: #dca3ff;
+		color: var(--background-emphasis);
+	}
+
+	.carousel .item div.wrapper {
+		margin-top: auto;
+	}
+
+	.carousel .item a.btn {
+		text-decoration: none;
+		font-family: "Inter", sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		border-radius: 99999px;
+		padding: 20px;
+
+		height: 1rem;
+
+		border: 1px solid var(--background-tertiary);
+		color: hsl(var(--accent-hue), 100%, 95%);
+		transition: all 200ms ease-in-out;
+	}
+
+	.carousel:not(.no-first-hl) .item:first-of-type a.btn {
+		color: var(--background-emphasis);
+	}
+
+	.carousel .item a.btn:hover {
+		background: hsla(var(--accent-hue), 80%, 65%, 0.5);
+		filter: grayscale(50%) contrast(50%);
+	}
+
+	/*
+	.btn.switcheroo {
+		width: 3.5rem;
+	}
+
+	.btn.switcheroo:hover {
+		width: 100%;
+	}
+	*/
+
+	.btn.switcheroo svg#icon {
+		flex-shrink: 0;
+	}
+
+	.btn.switcheroo span#title {
+		display: none;
+	}
+
+	.btn.switcheroo:hover span#title {
+		display: block;
+		animation: FadetoExistanceAndSlide 500ms ease-out forwards;
+	}
+
+	@keyframes FadetoExistanceAndSlide {
+		0% {
+			display: none;
+			opacity: 0;
+			transform: translateX(-10px);
+		}
+
+		1% {
+			display: block;
+			opacity: 0;
+		}
+
+		100% {
+			display: block;
+			opacity: 1;
+			transform: translateX(0px);
+		}
+	}
+</style>

@@ -1,31 +1,313 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import FeatureSection from "../components/FeatureSection.astro";
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import { Icon } from "astro-icon/components";
+import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 ---
 
-<Layout title="Upryzing">
+<DefaultLayout title="Upryzing">
 	<main>
-		<h1>Upryzing</h1>
-		<p>
-			Your conversations, your way.
-		</p>
+		<section id="tag">
+			<div class="overlay" role="presentation">
+				<Icon
+					name="spinny"
+					class="thingy topleft"
+					role="presentation"
+				/>
+				<Icon
+					name="spinny"
+					class="thingy bottomright"
+					role="presentation"
+				/>
+			</div>
+			<div class="slogan">
+				<h1>Your conversations,<br />your way.</h1>
+			</div>
+			<div class="buttons">
+				<a href="https://cloud.disroot.org/apps/forms/s/FM44AkPn9wdHgXM2DPj3oTHY"
+					><button id="signup" class="ripple"
+						>Sign up for early access <Icon
+							name="material-symbols:arrow-forward"
+						/></button
+					></a
+				>
+				<!-- TODO: uncomment after launch
+				<a href="#"
+					><button id="login" class="ripple"
+						>Log in <Icon
+							name="material-symbols:arrow-forward"
+						/></button
+					></a
+				>
+			-->
+			</div>
+		</section>
+		<!-- TODO: rewrite as needed, get actual images
+		<FeatureSection
+			title="Make it fun"
+			titleId="section-fun"
+			description="Upryzing is a new kind of social platform built by the community, for the community. Chat with your friends, rizz up that egirl, shitpost everywhere, and whatever else you do on Discord, now on an open source app."
+			type="left"
+			image={TBDPlaceholder}
+			alt="Placeholder"
+			role="complementary"
+		/>
+		<FeatureSection
+			title="Make it yours"
+			titleId="section-you"
+			description="Beautiful out of the box, but if it's not your style, that's okay! Customize everything with CSS themes, or use the plentiful selection of native and web clients made by people just like you. "
+			type="right"
+			image={TBDPlaceholder}
+			alt="Placeholder"
+			role="complementary"
+		/>
+		<FeatureSection
+			title="Make it awesome"
+			titleId="section-awesome"
+			description="Upryzing is completely open source, and community powered. Found a bug? Send a bug report, or even better, a pull request. Hate our guts, or want to build your own platform? Host your own Upryzing, we don't mind. "
+			type="left"
+			image={TBDPlaceholder}
+			alt="Placeholder"
+			role="complementary"
+		/>
+		<FeatureSection
+			title="So, what are you waiting for?"
+			titleId="section-callout"
+			type="centre"
+			actions={[
+				{
+					title: "Sign Up",
+					icon: "material-symbols:arrow-forward",
+					link: "#",
+				},
+			]}
+			callout
+			role="complementary"
+		/>
+	-->
 	</main>
-</Layout>
+</DefaultLayout>
 
 <style>
-	main {
-		margin: 3rem;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
+	main section:nth-child(2) {
+		padding-top: 10rem;
+		border-radius: 25px 25px 0 0;
 	}
-	h1 {
-		color: var(--accent);
-		font-size: 4rem;
-		font-weight: 900;
-		line-height: 1;
-		margin-bottom: 1em;
+
+	.slogan > h1 {
+		font-size: 5em;
+		margin: unset;
+
+		white-space: nowrap;
+
+		transition: font-size 0.5s cubic-bezier(0.44, -0.2, 0.23, 1.11);
+	}
+
+	section#tag div.buttons {
+		display: flex;
+		flex-direction: row;
+		gap: 1rem;
+
+		user-select: none;
+		-webkit-user-select: none;
+	}
+
+	section#tag div.buttons a {
+		text-decoration: none;
+	}
+
+	section#tag div.buttons button {
+		font-family: "Inter", sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		border: none;
+		border-radius: 99999px;
+		padding: 15px 20px;
+		font-weight: 600;
+		font-size: 1.5em;
+
+		transition: all 500ms ease-in-out;
+		transition: font-size 500s ease-in-out;
+	}
+
+	section#tag div.buttons button:hover {
+		cursor: pointer;
+	}
+
+	section#tag div.buttons button.ripple {
+		background-position: center;
+		transition: background 0.8s;
+	}
+
+	section#tag div.buttons button.ripple#signup:hover {
+		background: var(--accent)
+			radial-gradient(circle, transparent 1%, var(--accent) 1%)
+			center/15000%;
+	}
+
+	section#tag div.buttons button.ripple#signup:active {
+		background-color: hsl(var(--accent-hue), 90%, 75%);
+		background-size: 100%;
+		transition: background 0s;
+	}
+
+	section#tag div.buttons button.ripple#login:hover {
+		background: hsl(var(--accent-hue), 20%, 15%)
+			radial-gradient(
+				circle,
+				transparent 1%,
+				hsl(var(--accent-hue), 20%, 15%) 1%
+			)
+			center/15000%;
+	}
+
+	section#tag div.buttons button.ripple#login:active {
+		background-color: hsl(var(--accent-hue), 50%, 10%);
+		background-size: 100%;
+		transition: background 0s;
+	}
+
+	section#tag div.buttons button#signup {
+		background-color: var(--accent);
+	}
+
+	section#tag div.buttons button#login {
+		background-color: hsl(var(--accent-hue), 20%, 15%);
+		color: hsl(var(--accent-hue), 100%, 95%);
+	}
+
+	.overlay {
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 0;
+		height: 115%;
+		width: 100%;
+		overflow: clip;
+	}
+
+	section#tag {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		height: 100vh;
+
+		padding-left: 2rem;
+		gap: 2rem;
+
+		transition: all 500ms ease-in-out;
+		overflow: visible;
+	}
+
+	.thingy {
+		--size: 400px;
+		--timing: 50s;
+		display: block;
+		width: var(--size);
+		height: var(--size);
+		color: hsl(var(--accent-hue), 100%, 75%);
+		opacity: 0.05;
+
+		transition: all 500ms ease-in-out;
+	}
+
+	.thingy.topleft {
+		--offset: -150px;
+		position: absolute;
+		top: var(--offset);
+		left: var(--offset);
+		animation-name: rotate;
+		animation-duration: var(--timing);
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+		animation-direction: normal;
+	}
+
+	.thingy.bottomright {
+		--offset: -100px;
+		position: absolute;
+		/*
+			Since the container is a little bit lower, we have to adjust the offset by an arbitrary amount
+			I think 90px is a reasonable amount. Webdevs, please adjust as needed.
+		*/
+
+		bottom: calc(var(--offset) + 90px);
+		right: var(--offset);
+		animation-name: rotate;
+		animation-duration: var(--timing);
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+		animation-direction: normal;
+	}
+
+	@media screen and (max-width: 802px) {
+		.slogan > h1 {
+			font-size: 4em;
+		}
+
+		.thingy {
+			--size: 256px;
+			--timing: 30s;
+		}
+
+		.thingy.bottomright {
+			--offset: -50px;
+		}
+
+		.thingy.topleft {
+			--offset: -75px;
+		}
+
+		section#tag div.buttons button {
+			font-size: 1em;
+		}
+	}
+	@media screen and (max-width: 650px) {
+		.slogan > h1 {
+			font-size: 3em;
+		}
+
+		section#tag div.buttons button {
+			font-size: 1em;
+		}
+	}
+
+	@media screen and (max-width: 490px) {
+		.slogan > h1 {
+			font-size: 2.5em;
+		}
+
+		section#tag div.buttons button {
+			font-size: 1em;
+		}
+	}
+
+	@media screen and (max-width: 490px) {
+		.slogan > h1 {
+			font-size: 2.5em;
+		}
+
+		section#tag div.buttons button {
+			font-size: 1em;
+		}
+	}
+
+	@media screen and (max-width: 425px) {
+		.slogan > h1 {
+			font-size: 2em;
+		}
+	}
+
+	@keyframes rotate {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
 	}
 </style>

@@ -1,5 +1,5 @@
 {
-  "name": "@upryzing/landing-page",
+  "name": "@upryzing/lily",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,8 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.4.11",
-    "@astrojs/check": "^0.5.6",
-    "typescript": "^5.3.3"
+    "@astrojs/check": "^0.5.10",
+    "@astrojs/sitemap": "^3.1.5",
+    "@iconify-json/fa-brands": "^1.1.8",
+    "@iconify-json/fa-solid": "^1.1.8",
+    "@iconify-json/material-symbols": "^1.1.82",
+    "@iconify-json/ph": "^1.1.13",
+    "astro": "^4.9.3",
+    "astro-icon": "^1.1.0",
+    "typescript": "^5.4.5"
   }
 }

@@ -28,13 +28,20 @@ importers:
         version: 1.1.13
       astro:
         specifier: ^4.9.3
-        version: 4.9.3(@types/node@20.14.2)(typescript@5.4.5)
+        version: 4.9.3(@types/node@20.14.11)(typescript@5.4.5)
       astro-icon:
         specifier: ^1.1.0
         version: 1.1.0
       typescript:
         specifier: ^5.4.5
         version: 5.4.5
+    devDependencies:
+      '@types/node':
+        specifier: ^20.14.11
+        version: 20.14.11
+      local-pkg:
+        specifier: ^0.5.0
+        version: 0.5.0
 
 packages:
 
@@ -786,8 +793,8 @@ packages:
   '@types/node@17.0.45':
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
 
-  '@types/node@20.14.2':
-    resolution: {integrity: sha512-xyu6WAMVwv6AKFLB+e/7ySZVr/0zLCzOa7rSpq6jNwpqOrUbcACDWC+53d4n2QHOnDou0fbIsg8wZu/sxrnI4Q==}
+  '@types/node@20.14.11':
+    resolution: {integrity: sha512-kprQpL8MMeszbz6ojB5/tU8PLN4kesnN8Gjzw349rDlNgsSzg90lAVj3llK99Dh7JON+t9AuscPPFW6mPbTnSA==}
 
   '@types/sax@1.2.7':
     resolution: {integrity: sha512-rO73L89PJxeYM3s3pPPjiPgVVcymqU490g0YO5n5By0k2Erzj6tay/4lr1CHAAU4JyOWd1rpQ8bCf6cZfHU96A==}
@@ -2975,7 +2982,7 @@ snapshots:
 
   '@types/cheerio@0.22.35':
     dependencies:
-      '@types/node': 20.14.2
+      '@types/node': 20.14.11
 
   '@types/cookie@0.6.0': {}
 
@@ -3001,17 +3008,17 @@ snapshots:
 
   '@types/node@17.0.45': {}
 
-  '@types/node@20.14.2':
+  '@types/node@20.14.11':
     dependencies:
       undici-types: 5.26.5
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 20.14.11
 
   '@types/tar@6.1.13':
     dependencies:
-      '@types/node': 20.14.2
+      '@types/node': 20.14.11
       minipass: 4.2.8
 
   '@types/unist@2.0.10': {}
@@ -3020,7 +3027,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 20.14.2
+      '@types/node': 20.14.11
     optional: true
 
   '@ungap/structured-clone@1.2.0': {}
@@ -3132,7 +3139,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro@4.9.3(@types/node@20.14.2)(typescript@5.4.5):
+  astro@4.9.3(@types/node@20.14.11)(typescript@5.4.5):
     dependencies:
       '@astrojs/compiler': 2.8.0
       '@astrojs/internal-helpers': 0.4.0
@@ -3191,8 +3198,8 @@ snapshots:
       tsconfck: 3.1.0(typescript@5.4.5)
       unist-util-visit: 5.0.0
       vfile: 6.0.1
-      vite: 5.2.12(@types/node@20.14.2)
-      vitefu: 0.2.5(vite@5.2.12(@types/node@20.14.2))
+      vite: 5.2.12(@types/node@20.14.11)
+      vitefu: 0.2.5(vite@5.2.12(@types/node@20.14.11))
       which-pm: 2.2.0
       yargs-parser: 21.1.1
       zod: 3.23.8
@@ -4796,18 +4803,18 @@ snapshots:
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
 
-  vite@5.2.12(@types/node@20.14.2):
+  vite@5.2.12(@types/node@20.14.11):
     dependencies:
       esbuild: 0.20.2
       postcss: 8.4.38
       rollup: 4.18.0
     optionalDependencies:
-      '@types/node': 20.14.2
+      '@types/node': 20.14.11
       fsevents: 2.3.3
 
-  vitefu@0.2.5(vite@5.2.12(@types/node@20.14.2)):
+  vitefu@0.2.5(vite@5.2.12(@types/node@20.14.11)):
     optionalDependencies:
-      vite: 5.2.12(@types/node@20.14.2)
+      vite: 5.2.12(@types/node@20.14.11)
 
   volar-service-css@0.0.45(@volar/language-service@2.2.5):
     dependencies:

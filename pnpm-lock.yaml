@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@astrojs/check':
-        specifier: ^0.5.10
-        version: 0.5.10(typescript@5.4.5)
       '@astrojs/sitemap':
         specifier: ^3.1.5
         version: 3.1.5
@@ -32,16 +29,19 @@ importers:
       astro-icon:
         specifier: ^1.1.0
         version: 1.1.0
-      typescript:
-        specifier: ^5.4.5
-        version: 5.4.5
     devDependencies:
+      '@astrojs/check':
+        specifier: ^0.5.10
+        version: 0.5.10(typescript@5.4.5)
       '@types/node':
         specifier: ^20.14.11
         version: 20.14.11
       local-pkg:
         specifier: ^0.5.0
         version: 0.5.0
+      typescript:
+        specifier: ^5.4.5
+        version: 5.4.5
 
 packages:
 

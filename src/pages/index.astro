@@ -19,27 +19,35 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 					role="presentation"
 				/>
 			</div>
-			<div class="slogan">
-				<h1>Your conversations,<br />your way.</h1>
+			<div class="hawk-class">
+				<div style="gap: 2rem; display: flex; flex-direction: column;">
+					<Icon id="logo" class="hero-logo narrow" size={256} fill="currentColor" name="logo/mc" />
+					<div class="slogan">
+						<h1>Your conversations,<br />your way.</h1>
+					</div>
+					<div class="buttons">
+						<a href="https://cloud.disroot.org/apps/forms/s/FM44AkPn9wdHgXM2DPj3oTHY"
+							><button id="signup" class="ripple"
+								>Sign up for early access <Icon
+									name="material-symbols:arrow-forward"
+								/></button
+							></a
+						>
+						<!-- TODO: uncomment after launch
+						<a href="#"
+							><button id="login" class="ripple"
+								>Log in <Icon
+									name="material-symbols:arrow-forward"
+								/></button
+							></a
+						>
+					-->
+					</div>
+				</div>
+
+				<Icon id="logo" class="hero-logo wide" size={256} fill="currentColor" name="logo/mc" />
 			</div>
-			<div class="buttons">
-				<a href="https://cloud.disroot.org/apps/forms/s/FM44AkPn9wdHgXM2DPj3oTHY"
-					><button id="signup" class="ripple"
-						>Sign up for early access <Icon
-							name="material-symbols:arrow-forward"
-						/></button
-					></a
-				>
-				<!-- TODO: uncomment after launch
-				<a href="#"
-					><button id="login" class="ripple"
-						>Log in <Icon
-							name="material-symbols:arrow-forward"
-						/></button
-					></a
-				>
-			-->
-			</div>
+			
 		</section>
 		<!-- TODO: rewrite as needed, get actual images
 		<FeatureSection
@@ -92,6 +100,12 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 		border-radius: 25px 25px 0 0;
 	}
 
+	.hawk-class {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
 	.slogan > h1 {
 		font-size: 5em;
 		margin: unset;
@@ -99,6 +113,18 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 		white-space: nowrap;
 
 		transition: font-size 0.5s cubic-bezier(0.44, -0.2, 0.23, 1.11);
+	}
+
+	.hero-logo {
+		transition: width 0.5s cubic-bezier(0.44, -0.2, 0.23, 1.11);
+	}
+
+	.hero-logo.narrow {
+		display: none;
+	}
+
+	.hero-logo.wide {
+		margin-right: 15vw;
 	}
 
 	section#tag div.buttons {
@@ -194,7 +220,8 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 		width: 100%;
 		height: 100vh;
 
-		padding-left: 2rem;
+		padding-left: 8%;
+		padding-right: 8%;
 		gap: 2rem;
 
 		transition: all 500ms ease-in-out;
@@ -202,7 +229,7 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 	}
 
 	.thingy {
-		--size: 400px;
+		--size: 780px;
 		--timing: 50s;
 		display: block;
 		width: var(--size);
@@ -242,14 +269,28 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 		animation-direction: normal;
 	}
 
-	@media screen and (max-width: 802px) {
+	@media screen and (max-width: 1600px) {
+		.hero-logo.wide {
+			display: none;
+		}
+
+		.hero-logo.narrow {
+			display: block;
+		}
+	}
+
+	@media screen and (max-width: 870px) {
 		.slogan > h1 {
 			font-size: 4em;
 		}
 
 		.thingy {
-			--size: 256px;
+			--size: 500px;
 			--timing: 30s;
+		}
+
+		.hero-logo.narrow {
+			width: 100px;
 		}
 
 		.thingy.bottomright {
@@ -264,7 +305,7 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 			font-size: 1em;
 		}
 	}
-	@media screen and (max-width: 650px) {
+	@media screen and (max-width: 690px) {
 		.slogan > h1 {
 			font-size: 3em;
 		}
@@ -297,6 +338,10 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 	@media screen and (max-width: 425px) {
 		.slogan > h1 {
 			font-size: 2em;
+		}
+
+		.hero-logo.narrow {
+			width: 70px;
 		}
 	}
 

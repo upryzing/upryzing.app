@@ -119,12 +119,18 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 		flex-direction: column;
 	}
 
+	.hero-logo {
+		color: var(--accent);
+	}
+
 	.hero-logo.narrow {
 		display: none;
 	}
 
 	.hero-logo.wide {
 		margin-right: 15vw;
+
+		animation: float 3s ease-in-out alternate infinite;
 	}
 
 	section#tag div.buttons {
@@ -312,6 +318,15 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 	@media screen and (max-width: 490px) {
 		section#tag div.buttons button {
 			font-size: 1em;
+		}
+	}
+
+	@keyframes float {
+		from {
+			transform: translatey(0px);
+		}
+		to {
+			transform: translatey(-25px);
 		}
 	}
 

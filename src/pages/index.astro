@@ -19,9 +19,9 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 					role="presentation"
 				/>
 			</div>
-			<div class="hawk-class">
-				<div style="gap: 2rem; display: flex; flex-direction: column;">
-					<Icon id="logo" class="hero-logo narrow" size={256} fill="currentColor" name="logo/mc" />
+			<div class="hero-container">
+				<div class="slogan-container">
+					<Icon id="logo" class="hero-logo narrow" size={128} fill="currentColor" name="logo/mc" />
 					<div class="slogan">
 						<h1>Your conversations,<br />your way.</h1>
 					</div>
@@ -100,23 +100,23 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 		border-radius: 25px 25px 0 0;
 	}
 
-	.hawk-class {
+	.hero-container {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 	}
 
 	.slogan > h1 {
-		font-size: 5em;
+		font-size: 6vmin;
 		margin: unset;
 
 		white-space: nowrap;
-
-		transition: font-size 0.5s cubic-bezier(0.44, -0.2, 0.23, 1.11);
 	}
 
-	.hero-logo {
-		transition: width 0.5s cubic-bezier(0.44, -0.2, 0.23, 1.11);
+	.slogan-container {
+		display: flex;
+		gap: 2rem;
+		flex-direction: column;
 	}
 
 	.hero-logo.narrow {
@@ -280,17 +280,9 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 	}
 
 	@media screen and (max-width: 870px) {
-		.slogan > h1 {
-			font-size: 4em;
-		}
-
 		.thingy {
 			--size: 500px;
 			--timing: 30s;
-		}
-
-		.hero-logo.narrow {
-			width: 100px;
 		}
 
 		.thingy.bottomright {
@@ -306,42 +298,20 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 		}
 	}
 	@media screen and (max-width: 690px) {
-		.slogan > h1 {
-			font-size: 3em;
-		}
-
 		section#tag div.buttons button {
 			font-size: 1em;
 		}
 	}
 
 	@media screen and (max-width: 490px) {
-		.slogan > h1 {
-			font-size: 2.5em;
-		}
-
 		section#tag div.buttons button {
 			font-size: 1em;
 		}
 	}
 
 	@media screen and (max-width: 490px) {
-		.slogan > h1 {
-			font-size: 2.5em;
-		}
-
 		section#tag div.buttons button {
 			font-size: 1em;
-		}
-	}
-
-	@media screen and (max-width: 425px) {
-		.slogan > h1 {
-			font-size: 2em;
-		}
-
-		.hero-logo.narrow {
-			width: 70px;
 		}
 	}
 

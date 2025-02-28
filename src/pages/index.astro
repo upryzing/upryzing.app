@@ -321,6 +321,13 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 		}
 	}
 
+	@media (prefers-reduced-motion: reduce) {
+		.thingy {
+			animation-play-state: paused;
+			transition: none;
+		}
+	}
+
 	@keyframes float {
 		from {
 			transform: translatey(0px);

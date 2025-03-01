@@ -1,42 +1,46 @@
 <footer>
-    <div class="logo">
-        <picture>
-            <!-- It's sad that figma doesn't support JXL exports -->
-            <source srcset="/assets/wm_logo2x.png, /assets/wm_logo4x.png 4x">
-            <img loading="lazy" src="/assets/wm_logo2x.png" alt="Upryzing's Logo, a lightning bolt overlaid on top of outlines of the same bolt, but slightly tilted ">
-        </picture>
-    </div>
-    <div class="row categories">
-        <section class="column">
-            <h2>Stuff</h2>
-            <!-- TODO: either unfinished or blocked until launch
-            <a href="#">Blog</a>
-            <a href="#">Support</a>
-            <a href="/downloads">Download centre</a>
-            <a href="/why-upryzing">Why upryzing?</a>
-            <a href="/about">Our team</a>
-            <a href="#">Support us</a>
+    <div class="top">
+        <div class="logo">
+            <picture>
+                <!-- It's sad that figma doesn't support JXL exports -->
+                <source srcset="/assets/wm_logo2x.png, /assets/wm_logo4x.png 4x">
+                <img loading="lazy" src="/assets/wm_logo2x.png" alt="Upryzing's Logo, a lightning bolt overlaid on top of outlines of the same bolt, but slightly tilted ">
+            </picture>
+        </div>
+
+        <div class="row categories">
+            <section class="column">
+                <h2>Stuff</h2>
+                <!-- TODO: either unfinished or blocked until launch
+                <a href="#">Blog</a>
+                <a href="#">Support</a>
+                <a href="/downloads">Download centre</a>
+                <a href="/why-upryzing">Why upryzing?</a>
+                <a href="/about">Our team</a>
+                <a href="#">Support us</a>
+            -->
+                <a href="/sitemap-index.xml">Sitemap</a>
+                <a href="/licenses">Licenses</a>
+            </section>
+            <!-- TODO: ditto
+            <section class="column">
+                <h2>Legalese</h2>
+                <a href="/tos">Terms of service</a>
+                <a href="/community-guidelines">Public server guidelines</a>
+                <a href="/privacy">Privacy policy</a>
+                <a href="/legal-summary">Too long, didn't read</a>
+            </section>
         -->
-            <a href="/sitemap-index.xml">Sitemap</a>
-            <a href="/licenses">Licenses</a>
-        </section>
-        <!-- TODO: ditto
-        <section class="column">
-            <h2>Legalese</h2>
-            <a href="/tos">Terms of service</a>
-            <a href="/community-guidelines">Public server guidelines</a>
-            <a href="/privacy">Privacy policy</a>
-            <a href="/legal-summary">Too long, didn't read</a>
-        </section>
-    -->
-        <section class="column">
-            <h2>Socials</h2>
-            <a href="https://github.com/upryzing" rel="me">GitHub</a>
-            <a href="https://lea.pet/@upryzing">Upryzing on the Fediverse</a>
-            <a href="https://bsky.app/profile/upryzing.app">Bluesky</a>
-            <a href="https://discord.gg/Zst96h5ABV">Discord</a>
-        </section>
+            <section class="column">
+                <h2>Socials</h2>
+                <a href="https://github.com/upryzing" rel="me">GitHub</a>
+                <a href="https://lea.pet/@upryzing">Upryzing on the Fediverse</a>
+                <a href="https://bsky.app/profile/upryzing.app">Bluesky</a>
+                <a href="https://discord.gg/Zst96h5ABV">Discord</a>
+            </section>
+        </div>
     </div>
+    
     <div class="credits row">
         <p>Made with ❤️ by Inderix, Amy and the Upryzing team</p>
         <span role="none" class="dotDivider">·</span>
@@ -47,18 +51,22 @@
 <style>
     /* TODO: merge the .column and .row utility classes onto it's own file */
     footer {
-        padding: 2rem 2rem 1rem 2rem;
+        padding: 4rem 8vw 4rem 8vw;
         width: 100%;
         display: flex;
         flex-direction: column;
         background-color: var(--background-emphasis);
+        gap: 1rem;
 
         user-select: none;
         -webkit-user-select: none;
     }
 
-    footer .logo {
-        margin-bottom: 1rem;
+    footer .top {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 1rem;
     }
 
     footer .logo img {
@@ -72,7 +80,7 @@
     }
 
     footer .categories .column {
-        gap: .4rem;
+        gap: .8rem;
     }
 
     footer .categories h2 {
@@ -87,6 +95,8 @@
     footer .credits {
         display: inline-flex;
         align-items: center;
+        align-self: center;
+        flex-wrap: wrap;
         gap: .5ch;
     }
 

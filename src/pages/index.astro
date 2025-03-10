@@ -19,27 +19,36 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 					role="presentation"
 				/>
 			</div>
-			<div class="slogan">
-				<h1>Your conversations,<br />your way.</h1>
+			<div class="hero-container">
+				<div class="slogan-container">
+					<div class="slogan">
+						<h1>Your conversations,<br />your way.</h1>
+					</div>
+					<!-- *probably* temporary while the rest of the page is finished -->
+					<p class="description">Upryzing is a chat platform currently in development.</p>
+					<div class="buttons">
+						<a href="https://cloud.disroot.org/apps/forms/s/FM44AkPn9wdHgXM2DPj3oTHY"
+							><button id="signup" class="ripple"
+								>Sign up for early access <Icon
+									name="material-symbols:arrow-forward"
+								/></button
+							></a
+						>
+						<!-- TODO: uncomment after launch
+						<a href="#"
+							><button id="login" class="ripple"
+								>Log in <Icon
+									name="material-symbols:arrow-forward"
+								/></button
+							></a
+						>
+					-->
+					</div>
+				</div>
+
+				<Icon id="skeleton" size={921} name="skeleton" />			
 			</div>
-			<div class="buttons">
-				<a href="https://cloud.disroot.org/apps/forms/s/FM44AkPn9wdHgXM2DPj3oTHY"
-					><button id="signup" class="ripple"
-						>Sign up for early access <Icon
-							name="material-symbols:arrow-forward"
-						/></button
-					></a
-				>
-				<!-- TODO: uncomment after launch
-				<a href="#"
-					><button id="login" class="ripple"
-						>Log in <Icon
-							name="material-symbols:arrow-forward"
-						/></button
-					></a
-				>
-			-->
-			</div>
+			
 		</section>
 		<!-- TODO: rewrite as needed, get actual images
 		<FeatureSection
@@ -92,13 +101,32 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 		border-radius: 25px 25px 0 0;
 	}
 
+	.hero-container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 4rem;
+	}
+
 	.slogan > h1 {
-		font-size: 5em;
+		font-size: 5.5vmin;
 		margin: unset;
 
 		white-space: nowrap;
+	}
 
-		transition: font-size 0.5s cubic-bezier(0.44, -0.2, 0.23, 1.11);
+	.slogan-container {
+		display: flex;
+		gap: 2rem;
+		flex-direction: column;
+	}
+
+    .description {
+		font-size: 2vmin;
+	}
+
+	#skeleton{
+		color: color-mix(in oklab, var(--background), var(--foreground) 10%);
 	}
 
 	section#tag div.buttons {
@@ -194,7 +222,8 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 		width: 100%;
 		height: 100vh;
 
-		padding-left: 2rem;
+		padding-left: 8%;
+		padding-right: 8%;
 		gap: 2rem;
 
 		transition: all 500ms ease-in-out;
@@ -202,7 +231,7 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 	}
 
 	.thingy {
-		--size: 400px;
+		--size: 780px;
 		--timing: 50s;
 		display: block;
 		width: var(--size);
@@ -242,13 +271,14 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 		animation-direction: normal;
 	}
 
-	@media screen and (max-width: 802px) {
-		.slogan > h1 {
-			font-size: 4em;
+	@media screen and (max-width: 1550px) {
+		#skeleton {
+			display: none;
 		}
-
+	}
+	@media screen and (max-width: 870px) {
 		.thingy {
-			--size: 256px;
+			--size: 500px;
 			--timing: 30s;
 		}
 
@@ -264,39 +294,21 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 			font-size: 1em;
 		}
 	}
-	@media screen and (max-width: 650px) {
-		.slogan > h1 {
-			font-size: 3em;
-		}
-
+	@media screen and (max-width: 690px) {
 		section#tag div.buttons button {
 			font-size: 1em;
 		}
 	}
 
 	@media screen and (max-width: 490px) {
-		.slogan > h1 {
-			font-size: 2.5em;
-		}
-
 		section#tag div.buttons button {
 			font-size: 1em;
 		}
 	}
 
 	@media screen and (max-width: 490px) {
-		.slogan > h1 {
-			font-size: 2.5em;
-		}
-
 		section#tag div.buttons button {
 			font-size: 1em;
-		}
-	}
-
-	@media screen and (max-width: 425px) {
-		.slogan > h1 {
-			font-size: 2em;
 		}
 	}
 

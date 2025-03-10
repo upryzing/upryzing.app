@@ -21,10 +21,11 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 			</div>
 			<div class="hero-container">
 				<div class="slogan-container">
-					<Icon id="logo" class="hero-logo narrow" size={128} fill="currentColor" name="logo/mc" />
 					<div class="slogan">
 						<h1>Your conversations,<br />your way.</h1>
 					</div>
+					<!-- *probably* temporary while the rest of the page is finished -->
+					<p class="description">Upryzing is a chat platform currently in development.</p>
 					<div class="buttons">
 						<a href="https://cloud.disroot.org/apps/forms/s/FM44AkPn9wdHgXM2DPj3oTHY"
 							><button id="signup" class="ripple"
@@ -45,7 +46,7 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 					</div>
 				</div>
 
-				<Icon id="logo" class="hero-logo wide" size={256} fill="currentColor" name="logo/mc" />
+				<Icon id="skeleton" size={921} name="skeleton" />			
 			</div>
 			
 		</section>
@@ -104,10 +105,11 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		gap: 4rem;
 	}
 
 	.slogan > h1 {
-		font-size: 6vmin;
+		font-size: 5.5vmin;
 		margin: unset;
 
 		white-space: nowrap;
@@ -119,18 +121,12 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 		flex-direction: column;
 	}
 
-	.hero-logo {
-		color: var(--accent);
+    .description {
+		font-size: 2vmin;
 	}
 
-	.hero-logo.narrow {
-		display: none;
-	}
-
-	.hero-logo.wide {
-		margin-right: 15vw;
-
-		animation: float 3s ease-in-out alternate infinite;
+	#skeleton{
+		color: color-mix(in oklab, var(--background), var(--foreground) 10%);
 	}
 
 	section#tag div.buttons {
@@ -275,16 +271,11 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 		animation-direction: normal;
 	}
 
-	@media screen and (max-width: 1600px) {
-		.hero-logo.wide {
+	@media screen and (max-width: 1550px) {
+		#skeleton {
 			display: none;
 		}
-
-		.hero-logo.narrow {
-			display: block;
-		}
 	}
-
 	@media screen and (max-width: 870px) {
 		.thingy {
 			--size: 500px;
@@ -325,15 +316,6 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 		.thingy {
 			animation-play-state: paused;
 			transition: none;
-		}
-	}
-
-	@keyframes float {
-		from {
-			transform: translatey(0px);
-		}
-		to {
-			transform: translatey(-25px);
 		}
 	}
 

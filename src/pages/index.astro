@@ -23,9 +23,9 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 				<div class="slogan-container">
 					<div class="slogan">
 						<h1>Your conversations,<br />your way.</h1>
+						<!-- *probably* temporary while the rest of the page is finished -->
+						<p class="description">Upryzing is a chat platform currently in development.</p>
 					</div>
-					<!-- *probably* temporary while the rest of the page is finished -->
-					<p class="description">Upryzing is a chat platform currently in development.</p>
 					<div class="buttons">
 						<a href="https://cloud.disroot.org/apps/forms/s/FM44AkPn9wdHgXM2DPj3oTHY"
 							><button id="signup" class="ripple"
@@ -109,7 +109,7 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 	}
 
 	.slogan > h1 {
-		font-size: 5.5vmin;
+		font-size: clamp(32px, 5.5vmin, 70px);
 		margin: unset;
 
 		white-space: nowrap;
@@ -122,7 +122,7 @@ import TBDPlaceholder from "../../public/assets/tbd_placeholder.webp";
 	}
 
     .description {
-		font-size: 2vmin;
+		font-size: clamp(20px, 4vmin, 30px);
 	}
 
 	#skeleton{
